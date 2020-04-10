@@ -6,7 +6,7 @@
     <description>Recent content in Rachit Nigam on Rachit Nigam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; Rachit Nigam 2018</copyright>
+    <copyright>&amp;copy;&amp;nbsp;Rachit Nigam 2018</copyright>
     <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
@@ -21,33 +21,33 @@
 &lt;p&gt;With the end of the Spring 2020 semester a month away, I have spent almost
 two academic years at Cornell. A quick rundown of everything that happened:&lt;/p&gt;
 
-&lt;h4 id=&#34;failures&#34;&gt;Failures&lt;/h4&gt;
+&lt;h3 id=&#34;failures&#34;&gt;Failures&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Short paper on &lt;a href=&#34;https://github.com/cucapra/futil&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;FuTIL&lt;/a&gt; rejected from LCTES 2020.&lt;/li&gt;
-&lt;li&gt;Rejected from Facebook fellowship in 2020.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt; rejected from ASPLOS 2020 with two weak rejects.&lt;/li&gt;
-&lt;li&gt;Rejected from Microsoft research internship for summer 2019.&lt;/li&gt;
-&lt;li&gt;Rejected from Qualcomm fellowship application in 2019.&lt;/li&gt;
-&lt;li&gt;Rejected from the Facebook fellowship in 2019.&lt;/li&gt;
-&lt;li&gt;Rejected from the Symantec fellowship.&lt;/li&gt;
+&lt;li&gt;Short paper on &lt;a href=&#34;https://github.com/cucapra/futil&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;FuTIL&lt;/a&gt; rejected from LCTES ’20.&lt;/li&gt;
+&lt;li&gt;Rejected from Facebook fellowship ’20.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt; rejected from ASPLOS ’20 with two weak rejects.&lt;/li&gt;
+&lt;li&gt;Rejected from Microsoft research internship for summer ’19.&lt;/li&gt;
+&lt;li&gt;Rejected from Qualcomm fellowship application ’19.&lt;/li&gt;
+&lt;li&gt;Rejected from the Facebook fellowship ’19.&lt;/li&gt;
+&lt;li&gt;Rejected from the Symantec fellowship ’19.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;successes&#34;&gt;Successes&lt;/h4&gt;
+&lt;h3 id=&#34;successes&#34;&gt;Successes&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Short paper on &lt;a href=&#34;https://github.com/cucapra/diospyros&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Diospyros&lt;/a&gt; accepted to LCTES 2020.&lt;/li&gt;
-&lt;li&gt;Selected as a finalist for the Qualcomm fellowship in 2020.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt; accepted to PLDI 2020 with two strong accepts and two weak accepts.&lt;/li&gt;
-&lt;li&gt;Accepted research internship at &lt;a href=&#34;frl&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Facebook Reality Labs&lt;/a&gt; for summer 2019.&lt;/li&gt;
-&lt;li&gt;Gave an invited talk to the Princeton Architecture and PL groups on Dahlia.&lt;/li&gt;
+&lt;li&gt;Short paper on &lt;a href=&#34;https://github.com/cucapra/diospyros&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Diospyros&lt;/a&gt; accepted to LCTES ’20.&lt;/li&gt;
+&lt;li&gt;Selected as a finalist for the Qualcomm fellowship in ’20.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt; accepted to PLDI ’20.&lt;/li&gt;
+&lt;li&gt;Accepted research internship at &lt;a href=&#34;frl&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Facebook Reality Labs&lt;/a&gt; for summer ’19.&lt;/li&gt;
+&lt;li&gt;Gave an invited talk to the Princeton Architecture and PL groups.&lt;/li&gt;
 &lt;li&gt;Created and ran the &lt;a href=&#34;great-pl&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Great works in PL&lt;/a&gt; seminar.&lt;/li&gt;
-&lt;li&gt;Ran the programming languages retreat in Fall 2019.&lt;/li&gt;
+&lt;li&gt;Ran the programming languages retreat in Fall ’19.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;h4 id=&#34;fall-2018&#34;&gt;Fall 2018&lt;/h4&gt;
+&lt;h3 id=&#34;fall-2018&#34;&gt;Fall 2018&lt;/h3&gt;
 
 &lt;p&gt;I started at Cornell and was terrified that I would not be able to find an
 advisor. I set up meetings with the PL faculty and Cornell and decided to
@@ -69,7 +69,7 @@ enough about architecture to contribute to the project.&lt;/p&gt;
 &lt;p&gt;I started reading about FPGAs, implementing various features for the Dahlia
 compiler, and writing down proofs for various type system properties.
 I also got involved with the programming languages group and gave my
-&lt;a href=&#34;https://www.cs.cornell.edu/courses/cs7190/2018fa/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;first PLDG talk&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://www.cs.cornell.edu/courses/cs7190/2018fa/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;first pldg talk&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;We designed several language features for Dahlia. A particularly thorny
 design issue was supporting complex iteration patterns while providing
@@ -85,14 +85,14 @@ was more important than being accepted. I agreed.&lt;/p&gt;
 &lt;p&gt;During the semester I also realized that I was enjoying working on
 Dahlia and asked Adrian to formally be my advisor. He agreed.&lt;/p&gt;
 
-&lt;h4 id=&#34;winter-2018&#34;&gt;Winter 2018&lt;/h4&gt;
+&lt;h3 id=&#34;winter-2018&#34;&gt;Winter 2018&lt;/h3&gt;
 
 &lt;p&gt;I went back to India for the winter break where I read a bunch of papers
 and reviewed applications for PhD applicants. I convinced &lt;a href=&#34;https://www.cs.cornell.edu/~jnfoster/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Nate&lt;/a&gt; to
 help me organize the &lt;a href=&#34;https://www.cs.cornell.edu/courses/cs7194/2019sp/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Great works in PL&lt;/a&gt; seminar as an excuse to
 read classic PL papers.&lt;/p&gt;
 
-&lt;h4 id=&#34;spring-2019&#34;&gt;Spring 2019&lt;/h4&gt;
+&lt;h3 id=&#34;spring-2019&#34;&gt;Spring 2019&lt;/h3&gt;
 
 &lt;p&gt;I came back to Cornell and started implementing memory views in Dahlia.
 I kept feeling that the OCaml codebase was slowing me down so I &lt;a href=&#34;https://github.com/cucapra/dahlia/pull/46&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;rewrote
@@ -123,7 +123,7 @@ of new architecture friends. Architects seemed to be livelier than PL
 people because they&amp;rsquo;re living on the
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Explicit_data_graph_execution&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;EDGE&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&#34;summer-2019&#34;&gt;Summer 2019&lt;/h4&gt;
+&lt;h3 id=&#34;summer-2019&#34;&gt;Summer 2019&lt;/h3&gt;
 
 &lt;p&gt;I spent my summer in Redmond at FRL using program synthesis to solve hardware
 problems. Working on program synthesis is a roller coaster: the
@@ -133,7 +133,7 @@ and you don&amp;rsquo;t know what to do anymore and everything is sad.&lt;/p&gt;
 &lt;p&gt;I also wrote a few short sections for the Dahlia paper hoping to hit the
 ASPLOS 2020 deadline.&lt;/p&gt;
 
-&lt;h4 id=&#34;fall-2019&#34;&gt;Fall 2019&lt;/h4&gt;
+&lt;h3 id=&#34;fall-2019&#34;&gt;Fall 2019&lt;/h3&gt;
 
 &lt;p&gt;My team at FRL sufficiently liked my project to ask me to continue working
 on an offshoot. I realized that if I worked on a program synthesis project
@@ -216,13 +216,13 @@ proud of the work we had done.&lt;/p&gt;
 on a new project. We decided to use program synthesis to generate
 high-performance kernels for DSPs.&lt;/p&gt;
 
-&lt;h4 id=&#34;winter-2019&#34;&gt;Winter 2019&lt;/h4&gt;
+&lt;h3 id=&#34;winter-2019&#34;&gt;Winter 2019&lt;/h3&gt;
 
 &lt;p&gt;I went back home to India to recuperate from the broken arm. I proposed
 submitting a Qualcomm fellowship proposal for our DSP project. We quickly
 hacked up a demo project (called &lt;a href=&#34;https://github.com/cucapra/diospyros&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Diospyros&lt;/a&gt;) and submitted the proposal.&lt;/p&gt;
 
-&lt;h4 id=&#34;spring-2020&#34;&gt;Spring 2020&lt;/h4&gt;
+&lt;h3 id=&#34;spring-2020&#34;&gt;Spring 2020&lt;/h3&gt;
 
 &lt;p&gt;I came back to Cornell in the spring. Doctor told me that while my broken wrist
 bone had healed, a cartilage tear in my wrist might never properly heal. I
@@ -257,7 +257,7 @@ back from LCTES. The paper on Diospyros is accepted while the one on FuTIL is
 rejected. We also hear back from Qualcomm saying that we made it to the final
 stage.&lt;/p&gt;
 
-&lt;h4 id=&#34;epilogue&#34;&gt;Epilogue&lt;/h4&gt;
+&lt;h3 id=&#34;epilogue&#34;&gt;Epilogue&lt;/h3&gt;
 
 &lt;p&gt;My first two years in grad school were a lot of expected and unexpected things.
 The ups and downs of research were expected. The ups and downs of life were
@@ -697,7 +697,7 @@ research is like and helped me redefine what &amp;ldquo;success&amp;rdquo; shoul
 
 &lt;p&gt;Here is a quick summary of my research experience as an undergrad:&lt;/p&gt;
 
-&lt;h4 id=&#34;spring-2016&#34;&gt;Spring 2016&lt;/h4&gt;
+&lt;h3 id=&#34;spring-2016&#34;&gt;Spring 2016&lt;/h3&gt;
 
 &lt;p&gt;I reached out a my undergraduate advisor in my first semester after being
 fascinated with Scheme&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. After some back and forth, I quickly started
@@ -709,7 +709,7 @@ we wanted to ultimately verify properties of these shell scripts. Unfortunately,
 I showed that such a semantics becomes super complicated and we abandoned the
 project&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;. A few weeks into research and I had already failed a project.&lt;/p&gt;
 
-&lt;h4 id=&#34;summer-2016&#34;&gt;Summer 2016&lt;/h4&gt;
+&lt;h3 id=&#34;summer-2016&#34;&gt;Summer 2016&lt;/h3&gt;
 
 &lt;p&gt;I came back for the summer and started working on a new, and slightly related
 project. The idea was to extend previous work on &lt;a href=&#34;https://people.cs.umass.edu/~arjun/papers/2016-rehearsal.html&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;verifying Puppet
@@ -732,7 +732,7 @@ project where we were trying to automatically synthesize updates for Puppet
 manifests by capturing system calls. I worked on this project for the rest
 of the summer.&lt;/p&gt;
 
-&lt;h4 id=&#34;fall-2016&#34;&gt;Fall 2016&lt;/h4&gt;
+&lt;h3 id=&#34;fall-2016&#34;&gt;Fall 2016&lt;/h3&gt;
 
 &lt;p&gt;As the summer ended, my advisor proposed joining Fission, another project that
 I had been interested in from the start of my summer. This project aimed to
@@ -757,7 +757,7 @@ painfully clear that Fission would not pan out.&lt;/p&gt;
 
 &lt;p&gt;If you&amp;rsquo;re keeping track, it&amp;rsquo;s &lt;sup&gt;3&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; for failed projects.&lt;/p&gt;
 
-&lt;h4 id=&#34;spring-2017&#34;&gt;Spring 2017&lt;/h4&gt;
+&lt;h3 id=&#34;spring-2017&#34;&gt;Spring 2017&lt;/h3&gt;
 
 &lt;p&gt;While making slow progress on Fission, my advisor asked a new question, &amp;ldquo;What
 would it take to build a client-side IDE?&amp;ldquo;. In order to build this IDE, we
@@ -769,7 +769,7 @@ and programming chops to push on the project without hands-on support. By the
 end of this semester, we had managed to build an IDE and give a talk about it
 at &lt;a href=&#34;https://nepls.org/Events/31/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;NEPLS &amp;lsquo;17&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&#34;summer-2017&#34;&gt;Summer 2017&lt;/h4&gt;
+&lt;h3 id=&#34;summer-2017&#34;&gt;Summer 2017&lt;/h3&gt;
 
 &lt;p&gt;My advisor was going to be away for most the summer and he recommended that
 I do an &amp;ldquo;academic internship&amp;rdquo;. I emailed a professor at Brown University who
@@ -789,7 +789,7 @@ I spent about two weeks trying to understand it, and frustrated at my lack of
 progress, also wrote a &lt;a href=&#34;https://github.com/rachitnigam/pyret-lang.vim&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Vim plugin&lt;/a&gt; for Pyret. Once I understood the code base, it took me two days to
 implement the first part of the integration.&lt;/p&gt;
 
-&lt;h4 id=&#34;fall-2017&#34;&gt;Fall 2017&lt;/h4&gt;
+&lt;h3 id=&#34;fall-2017&#34;&gt;Fall 2017&lt;/h3&gt;
 
 &lt;p&gt;Summer came to an end and my most stressful semester in undergraduate began.
 I was graduating in three years so I was taking 6 classes, applying
@@ -799,7 +799,7 @@ polished paper to PLDI 2018 (which was later &lt;a href=&#34;./publication/stopi
 I was accepted to 8 graduate schools and a software engineering internship
 at Google. I eventually decided to start my PhD at Cornell.&lt;/p&gt;
 
-&lt;h4 id=&#34;afterward&#34;&gt;Afterward&lt;/h4&gt;
+&lt;h3 id=&#34;epilogue&#34;&gt;Epilogue&lt;/h3&gt;
 
 &lt;p&gt;Having spent a few years at Cornell, I have come to appreciate a lot of things
 about my undergraduate experience:&lt;/p&gt;
@@ -966,25 +966,29 @@ on schools. Good luck!&lt;/p&gt;
     </item>
     
     <item>
-      <title>Don&#39;t be Programming Languages researchers</title>
+      <title>Don’t be Programming Languages researchers</title>
       <link>/post/pl-research/</link>
       <pubDate>Sat, 22 Sep 2018 21:52:05 -0400</pubDate>
       
       <guid>/post/pl-research/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Instead of being a judgement of what PL research should be, this short post is
-simply a reflection of my research interests and what role PL plays into it.&lt;/em&gt;&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Instead of being a judgement of what PL research should be, this short post is
+simply a reflection of my research interests and what role PL plays into it.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;During a recent PLDG talk, the speaker said, &amp;ldquo;I think that, as a community, PL
-people have a moral responsibility to step in and say, No, you&amp;rsquo;re having fun
-wrong!&amp;rdquo; While I have no qualms about the comment itself (researchers should be
-able to not take themselves seriously sometimes), it led me to think about the
-way PL research is applied in new domains. The speaker usually starts with an
-overview of the domain and talks about the current state of the art of
-programming languages and tools in it. They then go on to point out that most
-tools and languages fail to make use of some amazing and well known PL
-technique. Then they describe their work which applies the aforementioned PL
+people have a moral responsibility to step in and say, ‘No, you&amp;rsquo;re having fun
+wrong!’&amp;rdquo; While I have no qualms about the comment itself (jokes can be useful
+tool in presentations), it led me to think about the
+way PL research is applied in new domains.&lt;/p&gt;
+
+&lt;p&gt;In a classic programming languages presentation, the speaker starts with an
+overview of a domain, talks about the current state of the art of
+programming languages and tools in it, and then go on to point out that most
+tools and languages fail to make use of amazing and well-known PL
+techniques. Then they describe their work which applies the aforementioned PL
 technique and build cool and interesting language abstractions with the promise
-of building better and improved tools for the domain.&lt;/p&gt;
+of building better and improved tools for the domain&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;p&gt;While I strongly endorse PL techniques and research being applied in new
 domains, this story demonstrates a fundamental issue for me: Application of PL techniques is
@@ -992,14 +996,25 @@ done retrospectively. PL researchers are not there when a domain is shaping up
 and people trying to build tools and programming languages for that domain.
 Only once people have made build these tools, which in turn cement
 themselves into domain, do PL researchers come into the scene and apply their
-cool techniques.&lt;/p&gt;
+cool techniques&amp;mdash;at a point where practitioners are unlikely to adopt something
+new.&lt;/p&gt;
 
-&lt;p&gt;So here is my solution: We should stop being PL researchers. Or put in a more
-nuanced manner, PL researchers should take it upon themselves to specialize
-heavily into new domains and apply PL techniques in those domains. Programming
-languages are the most fundamental way of communicating intent to computers. As
-PL researchers, we should be helping people from other domains to do this
-exactly.&lt;/p&gt;
+&lt;p&gt;So here is my solution: We should stop being PL researchers&amp;mdash;we should take it
+upon themselves to learn about new domains and apply ourselves well before
+the standards are established.
+Programming
+languages are the fundamental way of communicating intent to computers. As
+PL researchers, we should be actively helping people from other domains, not
+waiting for them to realize the error of their ways and come to us.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;It is rarely the case that the tool or language proposed actually solves the problems in the motivation. &lt;em&gt;Yes, do tell me how your tiny language will stop Google from going down twice a year.&lt;/em&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 </description>
     </item>
     
