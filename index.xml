@@ -18,7 +18,7 @@
       <guid>/post/first-two-years/</guid>
       <description>
 
-&lt;p&gt;With the end of the Spring 2020 semester a month away, I have spent almost
+&lt;p&gt;With the end of the Spring ’20 semester a month away, I have spent almost
 two academic years at Cornell. A quick rundown of everything that happened:&lt;/p&gt;
 
 &lt;h3 id=&#34;failures&#34;&gt;Failures&lt;/h3&gt;
@@ -47,7 +47,7 @@ two academic years at Cornell. A quick rundown of everything that happened:&lt;/
 
 &lt;hr /&gt;
 
-&lt;h3 id=&#34;fall-2018&#34;&gt;Fall 2018&lt;/h3&gt;
+&lt;h3 id=&#34;fall-18&#34;&gt;Fall ’18&lt;/h3&gt;
 
 &lt;p&gt;I started at Cornell and was terrified that I would not be able to find an
 advisor. I set up meetings with the PL faculty and Cornell and decided to
@@ -77,7 +77,7 @@ type safety. We came up with &lt;a href=&#34;https://capra.cs.cornell.edu/seashe
 views&lt;/a&gt; to solve this.
 The design of views felt inelegant.&lt;/p&gt;
 
-&lt;p&gt;I volunteered at OOPSLA 2019 in Boston where I met a lot of new and old
+&lt;p&gt;I volunteered at OOPSLA ’19 in Boston where I met a lot of new and old
 friends. I applied to industrial fellowships and was rejected from them.
 Adrian said that they prefer to accept more senior students and that applying
 was more important than being accepted. I agreed.&lt;/p&gt;
@@ -92,7 +92,7 @@ and reviewed applications for PhD applicants. I convinced &lt;a href=&#34;https:
 help me organize the &lt;a href=&#34;https://www.cs.cornell.edu/courses/cs7194/2019sp/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Great works in PL&lt;/a&gt; seminar as an excuse to
 read classic PL papers.&lt;/p&gt;
 
-&lt;h3 id=&#34;spring-2019&#34;&gt;Spring 2019&lt;/h3&gt;
+&lt;h3 id=&#34;spring-19&#34;&gt;Spring ’19&lt;/h3&gt;
 
 &lt;p&gt;I came back to Cornell and started implementing memory views in Dahlia.
 I kept feeling that the OCaml codebase was slowing me down so I &lt;a href=&#34;https://github.com/cucapra/dahlia/pull/46&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;rewrote
@@ -118,12 +118,12 @@ examples.&lt;/p&gt;
 &lt;p&gt;In the background, I decided to do a summer internship that year and started
 interviewed with MSR and Facebook Reality Labs (FRL). MSR rejected me and I
 eventually accepted an offer from the silicon research team at FRL. I
-also attended ASPLOS 2019 with Adrian and made a lot
+also attended ASPLOS ’19 with Adrian and made a lot
 of new architecture friends. Architects seemed to be livelier than PL
 people because they&amp;rsquo;re living on the
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Explicit_data_graph_execution&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;EDGE&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;summer-2019&#34;&gt;Summer 2019&lt;/h3&gt;
+&lt;h3 id=&#34;summer-19&#34;&gt;Summer ’19&lt;/h3&gt;
 
 &lt;p&gt;I spent my summer in Redmond at FRL using program synthesis to solve hardware
 problems. Working on program synthesis is a roller coaster: the
@@ -131,16 +131,16 @@ solver gives you solutions and you&amp;rsquo;re happy. At some point it stops sc
 and you don&amp;rsquo;t know what to do anymore and everything is sad.&lt;/p&gt;
 
 &lt;p&gt;I also wrote a few short sections for the Dahlia paper hoping to hit the
-ASPLOS 2020 deadline.&lt;/p&gt;
+ASPLOS ’20 deadline.&lt;/p&gt;
 
-&lt;h3 id=&#34;fall-2019&#34;&gt;Fall 2019&lt;/h3&gt;
+&lt;h3 id=&#34;fall-19&#34;&gt;Fall ’19&lt;/h3&gt;
 
 &lt;p&gt;My team at FRL sufficiently liked my project to ask me to continue working
 on an offshoot. I realized that if I worked on a program synthesis project
 alone, I would be sad all the time. I asked &lt;a href=&#34;https://www.cs.cornell.edu/~avh/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Alexa VanHattum&lt;/a&gt; if
 she wanted to collaborate on it with me and she said yes.&lt;/p&gt;
 
-&lt;p&gt;I flew back to Ithaca a week before the ASPLOS 2020 deadline fully expecting
+&lt;p&gt;I flew back to Ithaca a week before the ASPLOS ’20 deadline fully expecting
 to miss the deadline since we didn&amp;rsquo;t have a lot of content in the paper.
 Adrian said we should hit the deadline so I switched gears into paper
 writing mode. We wrote a paper in a week and submitted it to ASPLOS. I didn&amp;rsquo;t
@@ -209,20 +209,20 @@ and broke my left wrist. My roommate took me the ER where I got a splint. I was 
 I could no longer type on a keyboard so I started handwriting the edits to
 the paper which my co-authors then put into the paper. At 1am on November 23,
 we &lt;a href=&#34;https://twitter.com/notypes/status/1198111419704717312&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;submitted&lt;/a&gt; the
-Dahlia paper to PLDI 2020. I was unsure if the paper would get in but I was
+Dahlia paper to PLDI ’20. I was unsure if the paper would get in but I was
 proud of the work we had done.&lt;/p&gt;
 
 &lt;p&gt;The semester rolled on and I started brainstorming ideas with Alexa and FRL
 on a new project. We decided to use program synthesis to generate
 high-performance kernels for DSPs.&lt;/p&gt;
 
-&lt;h3 id=&#34;winter-2019&#34;&gt;Winter 2019&lt;/h3&gt;
+&lt;h3 id=&#34;winter-19&#34;&gt;Winter ’19&lt;/h3&gt;
 
 &lt;p&gt;I went back home to India to recuperate from the broken arm. I proposed
 submitting a Qualcomm fellowship proposal for our DSP project. We quickly
 hacked up a demo project (called &lt;a href=&#34;https://github.com/cucapra/diospyros&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Diospyros&lt;/a&gt;) and submitted the proposal.&lt;/p&gt;
 
-&lt;h3 id=&#34;spring-2020&#34;&gt;Spring 2020&lt;/h3&gt;
+&lt;h3 id=&#34;spring-20&#34;&gt;Spring ’20&lt;/h3&gt;
 
 &lt;p&gt;I came back to Cornell in the spring. Doctor told me that while my broken wrist
 bone had healed, a cartilage tear in my wrist might never properly heal. I
@@ -231,7 +231,7 @@ wondered if a paper submission was worth a lifelong injury (it wasn&amp;rsquo;t)
 &lt;p&gt;The semester rolled on and we were accepted for stage 2 of the Qualcomm
 proposal. We continued hacking on the project and wrote an even stronger stage 2
 proposal with real graphs. Emboldened by the success, we also decided to write
-a work-in-progress paper for LCTES 2020. In parallel, I joined another project
+a work-in-progress paper for LCTES ’20. In parallel, I joined another project
 to build an intermediate language (called &lt;a href=&#34;https://github.com/cucapra/futil&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;FuTIL&lt;/a&gt;) for compiling high-level
 languages to hardware circuits. I convinced my collaborators for that project
 to submit an LCTES paper as well. We wrote two very good papers and submitted
@@ -241,7 +241,7 @@ them.&lt;/p&gt;
 two strong accepts and two weak
 accepts. Adrian said it was almost certainly enough to get into PLDI. We
 wrote up a rebuttal and submitted it. Two weeks later, Dahlia was accepted
-to PLDI 2020. Another week after the acceptance I submitted an artifact to
+to PLDI ’20. Another week after the acceptance I submitted an artifact to
 the PLDI artifact evaluation committee. I also volunteered for the committee
 and reviewed some cool artifacts in the following weeks.&lt;/p&gt;
 
@@ -290,7 +290,7 @@ Cornell bearable.&lt;/p&gt;
       <pubDate>Tue, 07 Apr 2020 23:30:26 -0400</pubDate>
       
       <guid>/news/qualcomm-finalist/</guid>
-      <description>&lt;p&gt;Selected as finalists for the &lt;a href=&#34;https://www.qualcomm.com/invention/research/university-relations/innovation-fellowship/2020-north-america&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Qualcomm Fellowship&lt;/a&gt; with &lt;a href=&#34;https://www.cs.cornell.edu/~avh/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Alexa VanHattum&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;Finalists for the &lt;a href=&#34;https://www.qualcomm.com/invention/research/university-relations/innovation-fellowship/2020-north-america&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Qualcomm Fellowship&lt;/a&gt; with &lt;a href=&#34;https://www.cs.cornell.edu/~avh/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Alexa VanHattum&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
