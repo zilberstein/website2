@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Predictable Accelerator Design</title>
+      <link>/post/predictable-accelerator-design/</link>
+      <pubDate>Thu, 16 Apr 2020 11:59:11 -0400</pubDate>
+      
+      <guid>/post/predictable-accelerator-design/</guid>
+      <description>This blog post is on my recent work on Dahlia, a new programming language that uses affine types to generate performant FPGA designs.
+ Moore&amp;rsquo;s law is in its death throes. With Global foundries announcing that they are no longer pursuing smaller production nodes, the timeline for new processes being delayed and the end of the arguably more important Denard&amp;rsquo;s scaling it is increasingly becoming clear that general purpose computing is reaching its limit.</description>
+    </item>
+    
+    <item>
       <title>The first two years of my PhD</title>
       <link>/post/first-two-years/</link>
       <pubDate>Wed, 08 Apr 2020 00:40:17 -0400</pubDate>

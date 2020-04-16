@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.49.2" />
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="This blog post is on my recent work on Dahlia, a new programming language that uses affine types to generate performant FPGA designs.
+ Moore&rsquo;s law is in its death throes. With Global foundries announcing that they are no longer pursuing smaller production nodes, the timeline for new processes being delayed and the end of the arguably more important Denard&rsquo;s scaling it is increasingly becoming clear that general purpose computing is reaching its limit.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="../../post/predictable-accelerator-design/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#000">
+  
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="../../styles.css">
+  
+  <link rel="stylesheet" href="../../css/syntax.css">
+  
+
+  
+  <link rel="alternate" href="../../index.xml" type="application/rss+xml" title="Rachit Nigam">
+  <link rel="feed" href="../../index.xml" type="application/rss+xml" title="Rachit Nigam">
+  
+
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="icon" type="image/png" href="../../img/dusk-asterisk.png">
+  
+
+  <link rel="canonical" href="https://rachitnigam.com">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@notypes">
+  <meta property="twitter:creator" content="@notypes">
+  
+  <meta property="og:site_name" content="Rachit Nigam">
+  <meta property="og:url" content="/post/predictable-accelerator-design/">
+  <meta property="og:title" content="Predictable Accelerator Design | Rachit Nigam">
+  <meta property="og:description" content="This blog post is on my recent work on Dahlia, a new programming language that uses affine types to generate performant FPGA designs.
+ Moore&rsquo;s law is in its death throes. With Global foundries announcing that they are no longer pursuing smaller production nodes, the timeline for new processes being delayed and the end of the arguably more important Denard&rsquo;s scaling it is increasingly becoming clear that general purpose computing is reaching its limit.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-04-16T11:59:11-04:00">
+  
+  <meta property="article:modified_time" content="2020-04-16T13:30:59-04:00">
+  
+
+  
+
+  
+
+  
+  <title> Predictable Accelerator Design | Rachit Nigam </title>
+  
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="../../">Rachit Nigam</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="../../resume.pdf">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Predictable Accelerator Design</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2020-04-16 11:59:11 -0400 -0400" itemprop="datePublished">
+    <time datetime="2020-04-16 13:30:59 -0400 -0400" itemprop="dateModified">
+      Apr 16, 2020
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<blockquote>
+<p>This blog post is on my recent work on <a href="../../publication/dahlia">Dahlia</a>, a new programming language
+that uses affine types to generate performant FPGA designs.</p>
+</blockquote>
+
+<p>Moore&rsquo;s law is in its death throes. With Global foundries announcing that they
+are no longer pursuing smaller production nodes, the timeline for new processes
+being delayed and the end of the arguably more important Denard&rsquo;s scaling
+it is increasingly becoming clear that general purpose computing is reaching
+its limit.</p>
+
+<p>In midst of these scary times, you ask, &ldquo;Who shall save us?  How am I supposed
+to process the billions of cat pictures on the
+internet?&rdquo; You are not alone reader. These thoughts keep me up at night too.
+But like a shady salesman in the middle of this pitch, I have something that
+might be of interest to you. Architects love it, compiler writers hate it<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>,
+and programming languages researchers haven&rsquo;t heard about it. Walk with me,
+as I guide you through the incredible promises of [Reconfigurable architectures]
+and how a little bit of programming language magic can take us a long way.</p>
+
+<h3 id="reconfigure-what">Reconfigure what?</h3>
+
+<p>Since the dawn of computer architecture, we&rsquo;ve been trying to build processors
+that are good at executing <em>every</em> conceivable program. The advances in
+pipelined designs, out-of-order execution, and multi-level caches all try to
+dynamically discover regularity and parallelism in arbitrary programs and
+execute them as fast as possible. The performance benefits of these technologies
+are inarguable. However, all good things come at a price. In their single
+minded zealotry to improve single threaded performance, processors introduce
+an incredible amount of <em>control overhead</em>. So while on average modern processors
+can execute programs really quickly, they leave a lot of room for improvement
+with an individual program.</p>
+
+<p>Instead of paying for the cost of the <em>control overhead</em> in every program,
+what if you could build an adaptive processor that used exactly as much
+control as needed to execute the current program and no more. What if you
+could <em>reconfigure</em> your architecture based on the currently executing program?
+[Reconfigurable architectures] refers to the general class of architectures
+that allow some degree of application-specific reconfigurability. The term
+&ldquo;reconfigurable architectures&rdquo; is incredibly broad and spans everything for
+the reconfigurability of meshes in massive many-cores to bit-level
+reconfigurable architectures. In this post, we&rsquo;ll be focusing on Field
+Programmable Gate Arrays (FPGAs) as a reconfigurable accelerator.</p>
+
+<h3 id="fpgas-as-computational-accelerators">FPGAs as computational accelerators</h3>
+
+<p>FPGAs were initially developed as high-performance simulators for circuit
+designs. As people started building more complicated hardware designs,
+contemporary processors could not keep up with simulating them which in turn
+made it hard to verify and test the designs. Imagine trying to simulate an i3
+processor on a Pentium 4. FPGAs were designed as simulation accelerators. They
+provide <em>bit-level</em> reconfigurability which allows them to simulate wires and
+electric signals in a hardware design.</p>
+
+<p>FPGAs happily chugged along in this niche role for a long time till some really
+smart engineers at Microsoft demonstrated that FPGAs could be used as
+computational accelerators through the <a href="https://www.microsoft.com/en-us/research/project/project-catapult/" rel="noreferrer" target="_blank">Catapult</a> project. Catapult, and
+its successor <a href="https://www.microsoft.com/en-us/research/project/project-brainwave/" rel="noreferrer" target="_blank">BrainWave</a> showed that not only can FPGAs significantly
+improve the performance of modern large-scale applications, they provide enough
+flexibility to be used in multiple domains.</p>
+
+<h3 id="fpga-programming-101">FPGA programming 101</h3>
+
+<p>Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
+existing hardware design languages (HDLs). As a simulator for circuits, this is
+a really good idea. You can simply take your preexisting hardware design and
+run it on an FPGA<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>.</p>
+
+<p>Unfortunately, when using FPGAs as a computational accelerator, the
+wire-and-gate level of abstraction provided by HDLs is insufficient. Imagine
+trying to write matrix multiply by specifying every wire connection. Proponents
+of HDLs will point out that we can eek out every bit of performance from a
+low-level hardware design. However, this also means that design iteration times
+are much worse&mdash;it can take many weeks of engineering effort to implement
+a pipelined version of a design.</p>
+
+<p>I am by no means the first person to point this productivity-performance
+trade-off. Practitioners and researchers have created a multitude of
+HDLs to improve the level of abstraction: BlueSpec, SystemVerilog, PyMTL,
+Chisel, etc. all aim to use host languages to improve the level of abstraction
+in some manner. However, HDLs still <em>fundamentally</em> operate at the gate-and-wire
+level of abstraction. We&rsquo;re still writing down a structural specification
+instead of a computational one.</p>
+
+<p>A more radical technique to lift the level of abstraction would be to specify
+<em>how</em> the computation occurs and use a compiler to generate the hardware to
+that specification. The architecture community has been exploring the idea
+of transforming <em>behavioral</em> (or functional) descriptions to computation and
+transforming them into hardware designs. This is commonly referred to
+High-Level Synthesis (HLS) in the community.</p>
+
+<h3 id="high-level-synthesis">High-Level Synthesis</h3>
+
+<p>High-Level Synthesis<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup> is the idea of compiling a computational description
+in a high-level programming language, like C or C++, into an HDL like Verilog.
+The choice of C or C++ might seem odd but to architects, who operate at the
+level electrical signals, C++ is a huge jump in abstraction.</p>
+
+<p>HLS has been quite successful in a multitude of domains&mdash;everything from
+Digital Signal Processing to machine learning accelerators has been implemented
+in HLS. Unfortunately, in bridging the humongous semantics gap between
+hardware sequential C++ program and concurrent hardware design, HLS brings in
+its own set of problems.</p>
+
+<p><em>Have comments? <a href="mailto:rachit.nigam12@gmail.com" rel="noreferrer" target="_blank">Email</a> or <a href="https://twitter.com/notypes" rel="noreferrer" target="_blank">tweet</a> at me.</em></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Try looking for compiler bugs in a bleeding edge processor. You&rsquo;ll be sad for days.
+ <a class="footnote-return" href="#fnref:1"><sup>↩</sup></a></li>
+<li id="fn:2">I apologize to my architect friends. Running designs on an FPGA in reality can be an incredible challenge. FPGAs have different kinds of memory and performance characteristics. Most hardware design codebases are carefully engineered to separate FPGA-specific design decisions from the core design.
+ <a class="footnote-return" href="#fnref:2"><sup>↩</sup></a></li>
+<li id="fn:3">Architects adopted the &ldquo;Synthesis&rdquo; terminology from hardware design workflows. A hardware design is <em>synthesized</em> into silicon. Since we&rsquo;re now generating designs from a high-level language, we&rsquo;ll call it High-level Synthesis. From a compiler/programming languages viewpoint, this is just a compiler.
+ <a class="footnote-return" href="#fnref:3"><sup>↩</sup></a></li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy;&nbsp;Rachit Nigam 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+
+    
+    
+
+  </body>
+</html>
+

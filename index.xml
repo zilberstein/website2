@@ -11,6 +11,135 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Predictable Accelerator Design</title>
+      <link>/post/predictable-accelerator-design/</link>
+      <pubDate>Thu, 16 Apr 2020 11:59:11 -0400</pubDate>
+      
+      <guid>/post/predictable-accelerator-design/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;This blog post is on my recent work on &lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt;, a new programming language
+that uses affine types to generate performant FPGA designs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Moore&amp;rsquo;s law is in its death throes. With Global foundries announcing that they
+are no longer pursuing smaller production nodes, the timeline for new processes
+being delayed and the end of the arguably more important Denard&amp;rsquo;s scaling
+it is increasingly becoming clear that general purpose computing is reaching
+its limit.&lt;/p&gt;
+
+&lt;p&gt;In midst of these scary times, you ask, &amp;ldquo;Who shall save us?  How am I supposed
+to process the billions of cat pictures on the
+internet?&amp;rdquo; You are not alone reader. These thoughts keep me up at night too.
+But like a shady salesman in the middle of this pitch, I have something that
+might be of interest to you. Architects love it, compiler writers hate it&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;,
+and programming languages researchers haven&amp;rsquo;t heard about it. Walk with me,
+as I guide you through the incredible promises of [Reconfigurable architectures]
+and how a little bit of programming language magic can take us a long way.&lt;/p&gt;
+
+&lt;h3 id=&#34;reconfigure-what&#34;&gt;Reconfigure what?&lt;/h3&gt;
+
+&lt;p&gt;Since the dawn of computer architecture, we&amp;rsquo;ve been trying to build processors
+that are good at executing &lt;em&gt;every&lt;/em&gt; conceivable program. The advances in
+pipelined designs, out-of-order execution, and multi-level caches all try to
+dynamically discover regularity and parallelism in arbitrary programs and
+execute them as fast as possible. The performance benefits of these technologies
+are inarguable. However, all good things come at a price. In their single
+minded zealotry to improve single threaded performance, processors introduce
+an incredible amount of &lt;em&gt;control overhead&lt;/em&gt;. So while on average modern processors
+can execute programs really quickly, they leave a lot of room for improvement
+with an individual program.&lt;/p&gt;
+
+&lt;p&gt;Instead of paying for the cost of the &lt;em&gt;control overhead&lt;/em&gt; in every program,
+what if you could build an adaptive processor that used exactly as much
+control as needed to execute the current program and no more. What if you
+could &lt;em&gt;reconfigure&lt;/em&gt; your architecture based on the currently executing program?
+[Reconfigurable architectures] refers to the general class of architectures
+that allow some degree of application-specific reconfigurability. The term
+&amp;ldquo;reconfigurable architectures&amp;rdquo; is incredibly broad and spans everything for
+the reconfigurability of meshes in massive many-cores to bit-level
+reconfigurable architectures. In this post, we&amp;rsquo;ll be focusing on Field
+Programmable Gate Arrays (FPGAs) as a reconfigurable accelerator.&lt;/p&gt;
+
+&lt;h3 id=&#34;fpgas-as-computational-accelerators&#34;&gt;FPGAs as computational accelerators&lt;/h3&gt;
+
+&lt;p&gt;FPGAs were initially developed as high-performance simulators for circuit
+designs. As people started building more complicated hardware designs,
+contemporary processors could not keep up with simulating them which in turn
+made it hard to verify and test the designs. Imagine trying to simulate an i3
+processor on a Pentium 4. FPGAs were designed as simulation accelerators. They
+provide &lt;em&gt;bit-level&lt;/em&gt; reconfigurability which allows them to simulate wires and
+electric signals in a hardware design.&lt;/p&gt;
+
+&lt;p&gt;FPGAs happily chugged along in this niche role for a long time till some really
+smart engineers at Microsoft demonstrated that FPGAs could be used as
+computational accelerators through the &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-catapult/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Catapult&lt;/a&gt; project. Catapult, and
+its successor &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-brainwave/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;BrainWave&lt;/a&gt; showed that not only can FPGAs significantly
+improve the performance of modern large-scale applications, they provide enough
+flexibility to be used in multiple domains.&lt;/p&gt;
+
+&lt;h3 id=&#34;fpga-programming-101&#34;&gt;FPGA programming 101&lt;/h3&gt;
+
+&lt;p&gt;Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
+existing hardware design languages (HDLs). As a simulator for circuits, this is
+a really good idea. You can simply take your preexisting hardware design and
+run it on an FPGA&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, when using FPGAs as a computational accelerator, the
+wire-and-gate level of abstraction provided by HDLs is insufficient. Imagine
+trying to write matrix multiply by specifying every wire connection. Proponents
+of HDLs will point out that we can eek out every bit of performance from a
+low-level hardware design. However, this also means that design iteration times
+are much worse&amp;mdash;it can take many weeks of engineering effort to implement
+a pipelined version of a design.&lt;/p&gt;
+
+&lt;p&gt;I am by no means the first person to point this productivity-performance
+trade-off. Practitioners and researchers have created a multitude of
+HDLs to improve the level of abstraction: BlueSpec, SystemVerilog, PyMTL,
+Chisel, etc. all aim to use host languages to improve the level of abstraction
+in some manner. However, HDLs still &lt;em&gt;fundamentally&lt;/em&gt; operate at the gate-and-wire
+level of abstraction. We&amp;rsquo;re still writing down a structural specification
+instead of a computational one.&lt;/p&gt;
+
+&lt;p&gt;A more radical technique to lift the level of abstraction would be to specify
+&lt;em&gt;how&lt;/em&gt; the computation occurs and use a compiler to generate the hardware to
+that specification. The architecture community has been exploring the idea
+of transforming &lt;em&gt;behavioral&lt;/em&gt; (or functional) descriptions to computation and
+transforming them into hardware designs. This is commonly referred to
+High-Level Synthesis (HLS) in the community.&lt;/p&gt;
+
+&lt;h3 id=&#34;high-level-synthesis&#34;&gt;High-Level Synthesis&lt;/h3&gt;
+
+&lt;p&gt;High-Level Synthesis&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; is the idea of compiling a computational description
+in a high-level programming language, like C or C++, into an HDL like Verilog.
+The choice of C or C++ might seem odd but to architects, who operate at the
+level electrical signals, C++ is a huge jump in abstraction.&lt;/p&gt;
+
+&lt;p&gt;HLS has been quite successful in a multitude of domains&amp;mdash;everything from
+Digital Signal Processing to machine learning accelerators has been implemented
+in HLS. Unfortunately, in bridging the humongous semantics gap between
+hardware sequential C++ program and concurrent hardware design, HLS brings in
+its own set of problems.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Have comments? &lt;a href=&#34;mailto:rachit.nigam12@gmail.com&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Email&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/notypes&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;tweet&lt;/a&gt; at me.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;Try looking for compiler bugs in a bleeding edge processor. You&amp;rsquo;ll be sad for days.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;I apologize to my architect friends. Running designs on an FPGA in reality can be an incredible challenge. FPGAs have different kinds of memory and performance characteristics. Most hardware design codebases are carefully engineered to separate FPGA-specific design decisions from the core design.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;Architects adopted the &amp;ldquo;Synthesis&amp;rdquo; terminology from hardware design workflows. A hardware design is &lt;em&gt;synthesized&lt;/em&gt; into silicon. Since we&amp;rsquo;re now generating designs from a high-level language, we&amp;rsquo;ll call it High-level Synthesis. From a compiler/programming languages viewpoint, this is just a compiler.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>The first two years of my PhD</title>
       <link>/post/first-two-years/</link>
       <pubDate>Wed, 08 Apr 2020 00:40:17 -0400</pubDate>
@@ -962,59 +1091,6 @@ on schools. Good luck!&lt;/p&gt;
       
       <guid>/news/volunteer-oopsla2018/</guid>
       <description>&lt;p&gt;Student volunteer at &lt;a href=&#34;https://conf.researchr.org/track/splash-2018/splash-2018-OOPSLA&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;OOPSLA 2018&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Don’t be Programming Languages researchers</title>
-      <link>/post/pl-research/</link>
-      <pubDate>Sat, 22 Sep 2018 21:52:05 -0400</pubDate>
-      
-      <guid>/post/pl-research/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Instead of being a judgement of what PL research should be, this short post is
-simply a reflection of my research interests and what role PL plays into it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;During a recent PLDG talk, the speaker said, &amp;ldquo;I think that, as a community, PL
-people have a moral responsibility to step in and say, ‘No, you&amp;rsquo;re having fun
-wrong!’&amp;rdquo; While I have no qualms about the comment itself (jokes can be useful
-tool in presentations), it led me to think about the
-way PL research is applied in new domains.&lt;/p&gt;
-
-&lt;p&gt;In a classic programming languages presentation, the speaker starts with an
-overview of a domain, talks about the current state of the art of
-programming languages and tools in it, and then go on to point out that most
-tools and languages fail to make use of amazing and well-known PL
-techniques. Then they describe their work which applies the aforementioned PL
-technique and build cool and interesting language abstractions with the promise
-of building better and improved tools for the domain&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;While I strongly endorse PL techniques and research being applied in new
-domains, this story demonstrates a fundamental issue for me: Application of PL techniques is
-done retrospectively. PL researchers are not there when a domain is shaping up
-and people trying to build tools and programming languages for that domain.
-Only once people have made build these tools, which in turn cement
-themselves into domain, do PL researchers come into the scene and apply their
-cool techniques&amp;mdash;at a point where practitioners are unlikely to adopt something
-new.&lt;/p&gt;
-
-&lt;p&gt;So here is my solution: We should stop being PL researchers&amp;mdash;we should take it
-upon themselves to learn about new domains and apply ourselves well before
-the standards are established.
-Programming
-languages are the fundamental way of communicating intent to computers. As
-PL researchers, we should be actively helping people from other domains, not
-waiting for them to realize the error of their ways and come to us.&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;It is rarely the case that the tool or language proposed actually solves the problems in the motivation. &lt;em&gt;Yes, do tell me how your tiny language will stop Google from going down twice a year.&lt;/em&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
 </description>
     </item>
     
