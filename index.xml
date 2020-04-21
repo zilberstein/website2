@@ -11,71 +11,83 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Predictable Accelerator Design</title>
-      <link>/post/predictable-accelerator-design/</link>
+      <title>Compiling for the Reconfigurable Future</title>
+      <link>/post/reconf-future/</link>
       <pubDate>Thu, 16 Apr 2020 11:59:11 -0400</pubDate>
       
-      <guid>/post/predictable-accelerator-design/</guid>
+      <guid>/post/reconf-future/</guid>
       <description>
 
-&lt;blockquote&gt;
-&lt;p&gt;This blog post is on my recent work on &lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt;, a new programming language
-that uses affine types to generate performant FPGA designs.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Moore&amp;rsquo;s law is in its death throes. With Global Foundries &lt;a href=&#34;https://www.anandtech.com/show/13277/globalfoundries-stops-all-7nm-development&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;announcing&lt;/a&gt;
+that they are no longer pursuing 7nm production nodes, fabrication companies
+focusing on &lt;a href=&#34;https://www.anandtech.com/show/15217/intels-manufacturing-roadmap-from-2019-to-2029&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;incremental improvements&lt;/a&gt; instead of doubling
+computing power, and the end of the arguably more
+important &lt;a href=&#34;https://en.wikipedia.org/wiki/Dennard_scaling&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Denard&amp;rsquo;s scaling&lt;/a&gt; the death of computer architectures
+as we know them is coming close.&lt;/p&gt;
 
-&lt;p&gt;Moore&amp;rsquo;s law is in its death throes. With Global foundries announcing that they
-are no longer pursuing smaller production nodes, the timeline for new processes
-being delayed and the end of the arguably more important Denard&amp;rsquo;s scaling
-it is increasingly becoming clear that general purpose computing is reaching
-its limit.&lt;/p&gt;
+&lt;p&gt;While not obvious in text, I say &amp;ldquo;death of computer architectures&amp;rdquo; in the
+most optimistic way possible. With process scaling coming to an end, it will
+be difficult to find raw silicon speedups and require us to come up with
+interesting architectures to tackle the future of computing. Reconfigurable
+architectures are one of the hottest research topics and perhaps hold the
+key to domain-specific hardware acceleration.&lt;/p&gt;
 
-&lt;p&gt;In midst of these scary times, you ask, &amp;ldquo;Who shall save us?  How am I supposed
-to process the billions of cat pictures on the
-internet?&amp;rdquo; You are not alone reader. These thoughts keep me up at night too.
-But like a shady salesman in the middle of this pitch, I have something that
-might be of interest to you. Architects love it, compiler writers hate it&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;,
-and programming languages researchers haven&amp;rsquo;t heard about it. Walk with me,
-as I guide you through the incredible promises of [Reconfigurable architectures]
-and how a little bit of programming language magic can take us a long way.&lt;/p&gt;
-
-&lt;h3 id=&#34;reconfigure-what&#34;&gt;Reconfigure what?&lt;/h3&gt;
+&lt;h3 id=&#34;reconfigurable-architectures&#34;&gt;Reconfigurable Architectures&lt;/h3&gt;
 
 &lt;p&gt;Since the dawn of computer architecture, we&amp;rsquo;ve been trying to build processors
 that are good at executing &lt;em&gt;every&lt;/em&gt; conceivable program. The advances in
-pipelined designs, out-of-order execution, and multi-level caches all try to
+pipelined designs, speculative and out-of-order execution all try to
 dynamically discover regularity and parallelism in arbitrary programs and
 execute them as fast as possible. The performance benefits of these technologies
 are inarguable. However, all good things come at a price. In their single
 minded zealotry to improve single threaded performance, processors introduce
-an incredible amount of &lt;em&gt;control overhead&lt;/em&gt;. So while on average modern processors
-can execute programs really quickly, they leave a lot of room for improvement
-with an individual program.&lt;/p&gt;
+an incredible amount of &lt;em&gt;control overhead&lt;/em&gt;. Figure 1 shows the energy
+breakdown of executing an add instruction. The control dominates the cost of
+executing an instruction.&lt;/p&gt;
 
-&lt;p&gt;Instead of paying for the cost of the &lt;em&gt;control overhead&lt;/em&gt; in every program,
-what if you could build an adaptive processor that used exactly as much
-control as needed to execute the current program and no more. What if you
-could &lt;em&gt;reconfigure&lt;/em&gt; your architecture based on the currently executing program?
-[Reconfigurable architectures] refers to the general class of architectures
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+&lt;img src=&#34;./img/energy-breakdown.png&#34;
+     alt=&#34;Energy breakdown of executing an add instruction on 45nm technology.&#34;&gt;
+&lt;/img&gt;
+&lt;figcaption&gt;
+Fig 1.
+&lt;a href=&#34;https://eecs.oregonstate.edu/research/vlsi/teaching/ECE471_WIN15/mark_horowitz_ISSCC_2014.pdf&#34;&gt;Energy breakdown&lt;/a&gt;
+of executing an add instruction on 45nm technology.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;So while modern processors
+can execute programs quickly, they leave a lot of room for improvement
+with an individual program.
+Instead of paying for the cost of the general control structures in every program,
+what if your processor could pay for the exactly the amount of control required
+to execute the current program.
+What if you
+could &lt;em&gt;reconfigure&lt;/em&gt; your architecture
+based on the currently executing program?
+Reconfigurable architectures refers to the general class of architectures
 that allow some degree of application-specific reconfigurability. The term
-&amp;ldquo;reconfigurable architectures&amp;rdquo; is incredibly broad and spans everything for
-the reconfigurability of meshes in massive many-cores to bit-level
+&amp;ldquo;reconfigurable architectures&amp;rdquo; is incredibly broad and spans everything from
+the reconfigurability of meshes in &lt;a href=&#34;http://opencelerity.org/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;massive many-cores&lt;/a&gt; to bit-level
 reconfigurable architectures. In this post, we&amp;rsquo;ll be focusing on Field
 Programmable Gate Arrays (FPGAs) as a reconfigurable accelerator.&lt;/p&gt;
 
 &lt;h3 id=&#34;fpgas-as-computational-accelerators&#34;&gt;FPGAs as computational accelerators&lt;/h3&gt;
 
 &lt;p&gt;FPGAs were initially developed as high-performance simulators for circuit
-designs. As people started building more complicated hardware designs,
-contemporary processors could not keep up with simulating them which in turn
-made it hard to verify and test the designs. Imagine trying to simulate an i3
+designs. As we started building more complicated hardware designs,
+contemporary processors could no longer simulate. This in turn
+made it hard to test and verify designs&amp;mdash;imagine trying to simulate an i3
 processor on a Pentium 4. FPGAs were designed as simulation accelerators. They
 provide &lt;em&gt;bit-level&lt;/em&gt; reconfigurability which allows them to simulate wires and
-electric signals in a hardware design.&lt;/p&gt;
+gates in a hardware design.&lt;/p&gt;
 
 &lt;p&gt;FPGAs happily chugged along in this niche role for a long time till some really
 smart engineers at Microsoft demonstrated that FPGAs could be used as
 computational accelerators through the &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-catapult/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Catapult&lt;/a&gt; project. Catapult, and
-its successor &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-brainwave/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;BrainWave&lt;/a&gt; showed that not only can FPGAs significantly
+its successor &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-brainwave/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;BrainWave&lt;/a&gt;, showed that not only can FPGAs significantly
 improve the performance of modern large-scale applications, they provide enough
 flexibility to be used in multiple domains.&lt;/p&gt;
 
@@ -84,43 +96,56 @@ flexibility to be used in multiple domains.&lt;/p&gt;
 &lt;p&gt;Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
 existing hardware design languages (HDLs). As a simulator for circuits, this is
 a really good idea. You can simply take your preexisting hardware design and
-run it on an FPGA&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+run it on an FPGA&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
-&lt;p&gt;Unfortunately, when using FPGAs as a computational accelerator, the
-wire-and-gate level of abstraction provided by HDLs is insufficient. Imagine
-trying to write matrix multiply by specifying every wire connection. Proponents
+&lt;p&gt;Unfortunately, when trying to run high-level application code, like a matrix
+multiply or a convolution kernel, the level of abstraction provided by HDLs
+is far too low-level.
+Imagine
+trying to write a convolution by specifying every wire connection
+into every adder. Proponents
 of HDLs will point out that we can eek out every bit of performance from a
 low-level hardware design. However, this also means that design iteration times
-are much worse&amp;mdash;it can take many weeks of engineering effort to implement
-a pipelined version of a design.&lt;/p&gt;
+are much worse. It can take many weeks of engineering effort to implement
+and optimize a design.&lt;/p&gt;
 
 &lt;p&gt;I am by no means the first person to point this productivity-performance
 trade-off. Practitioners and researchers have created a multitude of
-HDLs to improve the level of abstraction: BlueSpec, SystemVerilog, PyMTL,
-Chisel, etc. all aim to use host languages to improve the level of abstraction
-in some manner. However, HDLs still &lt;em&gt;fundamentally&lt;/em&gt; operate at the gate-and-wire
-level of abstraction. We&amp;rsquo;re still writing down a structural specification
-instead of a computational one.&lt;/p&gt;
+HDLs to improve the level of abstraction: &lt;a href=&#34;https://bluespec.com/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;BlueSpec&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/SystemVerilog&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;SystemVerilog&lt;/a&gt;, &lt;a href=&#34;https://github.com/cornell-brg/pymtl3&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;PyMTL&lt;/a&gt;,
+&lt;a href=&#34;https://www.chisel-lang.org/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Chisel&lt;/a&gt;, etc. all aim to use host languages to improve the level of abstraction
+in some manner. For example, Chisel is embedded in Scala and provides
+modularity and parameterization mechanisms using Scala&amp;rsquo;s type system.
+However, HDLs still &lt;em&gt;fundamentally&lt;/em&gt; operate at the gate-and-wire
+level of abstraction. Chisel designs, after being typechecked by the Scala
+compiler, are expanded into a structural specification of the hardware design.
+The level of reasoning is still at the structural level or &lt;em&gt;how&lt;/em&gt; to compute
+a values instead of a computational one, or &lt;em&gt;what&lt;/em&gt; values to compute.&lt;/p&gt;
 
 &lt;p&gt;A more radical technique to lift the level of abstraction would be to specify
 &lt;em&gt;how&lt;/em&gt; the computation occurs and use a compiler to generate the hardware to
 that specification. The architecture community has been exploring the idea
-of transforming &lt;em&gt;behavioral&lt;/em&gt; (or functional) descriptions to computation and
-transforming them into hardware designs. This is commonly referred to
-High-Level Synthesis (HLS) in the community.&lt;/p&gt;
+of transforming behavioral (or functional) descriptions of computation
+into hardware designs. This is commonly referred to High-Level Synthesis (HLS)
+in the community.&lt;/p&gt;
 
 &lt;h3 id=&#34;high-level-synthesis&#34;&gt;High-Level Synthesis&lt;/h3&gt;
 
-&lt;p&gt;High-Level Synthesis&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; is the idea of compiling a computational description
-in a high-level programming language, like C or C++, into an HDL like Verilog.
-The choice of C or C++ might seem odd but to architects, who operate at the
-level electrical signals, C++ is a huge jump in abstraction.&lt;/p&gt;
+&lt;p&gt;High-Level Synthesis&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; is the idea of compiling a computational description
+in a high-level programming language&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;, like C or C++, into an HDL like
+Verilog. HLS has been quite successful in a multitude of domains&amp;mdash;everything
+from &lt;a href=&#34;https://ieeexplore.ieee.org/document/1466178&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;digital signal processing&lt;/a&gt; to &lt;a href=&#34;https://dl.acm.org/doi/10.1145/3020078.3021741&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;machine learning
+accelerators&lt;/a&gt; has been implemented in HLS.&lt;/p&gt;
 
-&lt;p&gt;HLS has been quite successful in a multitude of domains&amp;mdash;everything from
-Digital Signal Processing to machine learning accelerators has been implemented
-in HLS. Unfortunately, in bridging the humongous semantics gap between
-hardware sequential C++ program and concurrent hardware design, HLS brings in
-its own set of problems.&lt;/p&gt;
+&lt;p&gt;The semantic gap between a functional description and timed hardware structures
+is quite large. A hardware design is called &lt;em&gt;timed&lt;/em&gt; because it describes the
+behavior individual circuits at the granularity of clock cycles. An HLS
+compiler needs to transform the functional description into a &lt;em&gt;data path&lt;/em&gt;,
+which describes the hardware structures that can perform computations, and
+a &lt;em&gt;control path&lt;/em&gt;, which describes the computation performed by components every
+cycle.&lt;/p&gt;
+
+&lt;p&gt;In bridging the humongous semantics gap between hardware sequential C++ program
+and concurrent hardware design, HLS brings in its own set of problems.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Have comments? &lt;a href=&#34;mailto:rachit.nigam12@gmail.com&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Email&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/notypes&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;tweet&lt;/a&gt; at me.&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
@@ -128,19 +153,19 @@ its own set of problems.&lt;/p&gt;
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;Try looking for compiler bugs in a bleeding edge processor. You&amp;rsquo;ll be sad for days.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&#34;fn:2&#34;&gt;I apologize to my architect friends. Running designs on an FPGA in reality can be an incredible challenge. FPGAs have different kinds of memory and performance characteristics. Most hardware design codebases are carefully engineered to separate FPGA-specific design decisions from the core design.
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;Architects adopted the &amp;ldquo;Synthesis&amp;rdquo; terminology from hardware design workflows. A hardware design is &lt;em&gt;synthesized&lt;/em&gt; into silicon. Since we&amp;rsquo;re now generating designs from a high-level language, we&amp;rsquo;ll call it High-level Synthesis. From a compiler/programming languages viewpoint, this is just a compiler.
+&lt;li id=&#34;fn:3&#34;&gt;Architects adopted the &amp;ldquo;Synthesis&amp;rdquo; terminology from hardware design workflows. A hardware design is &lt;em&gt;synthesized&lt;/em&gt; into silicon. Since we&amp;rsquo;re now generating designs from a high-level language, we&amp;rsquo;ll call it &amp;ldquo;High-level Synthesis&amp;rdquo;. From a compiler/programming languages viewpoint, this is just a compiler.
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;The choice of C or C++ as a &amp;ldquo;high-level language&amp;rdquo; might seem odd but to architects, who operate at the level clock cycles and hardware structures, C++ is a huge jump in abstraction.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:4&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>The first two years of my PhD</title>
+      <title>The First Two Years of My PhD</title>
       <link>/post/first-two-years/</link>
       <pubDate>Wed, 08 Apr 2020 00:40:17 -0400</pubDate>
       
@@ -424,7 +449,7 @@ Cornell bearable.&lt;/p&gt;
     </item>
     
     <item>
-      <title>The cost of virtualizing CS conferences</title>
+      <title>The Cost of Virtualizing CS Conferences</title>
       <link>/post/virtual-cs-conferences/</link>
       <pubDate>Wed, 18 Mar 2020 23:15:05 -0400</pubDate>
       
@@ -974,7 +999,7 @@ before you can see any progress.&lt;/p&gt;
     </item>
     
     <item>
-      <title>PhD @ Cornell: The Free Agent system</title>
+      <title>PhD@Cornell: The Free Agent system</title>
       <link>/post/free-agent-cornell/</link>
       <pubDate>Sat, 15 Dec 2018 08:27:21 +0530</pubDate>
       

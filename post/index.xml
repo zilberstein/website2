@@ -13,17 +13,17 @@
     
     
     <item>
-      <title>Predictable Accelerator Design</title>
-      <link>/post/predictable-accelerator-design/</link>
+      <title>Compiling for the Reconfigurable Future</title>
+      <link>/post/reconf-future/</link>
       <pubDate>Thu, 16 Apr 2020 11:59:11 -0400</pubDate>
       
-      <guid>/post/predictable-accelerator-design/</guid>
-      <description>This blog post is on my recent work on Dahlia, a new programming language that uses affine types to generate performant FPGA designs.
- Moore&amp;rsquo;s law is in its death throes. With Global foundries announcing that they are no longer pursuing smaller production nodes, the timeline for new processes being delayed and the end of the arguably more important Denard&amp;rsquo;s scaling it is increasingly becoming clear that general purpose computing is reaching its limit.</description>
+      <guid>/post/reconf-future/</guid>
+      <description>Moore&amp;rsquo;s law is in its death throes. With Global Foundries announcing that they are no longer pursuing 7nm production nodes, fabrication companies focusing on incremental improvements instead of doubling computing power, and the end of the arguably more important Denard&amp;rsquo;s scaling the death of computer architectures as we know them is coming close.
+While not obvious in text, I say &amp;ldquo;death of computer architectures&amp;rdquo; in the most optimistic way possible.</description>
     </item>
     
     <item>
-      <title>The first two years of my PhD</title>
+      <title>The First Two Years of My PhD</title>
       <link>/post/first-two-years/</link>
       <pubDate>Wed, 08 Apr 2020 00:40:17 -0400</pubDate>
       
@@ -33,7 +33,7 @@ Failures  Short paper on FuTIL rejected from LCTES ’20. Rejected from Facebook
     </item>
     
     <item>
-      <title>The cost of virtualizing CS conferences</title>
+      <title>The Cost of Virtualizing CS Conferences</title>
       <link>/post/virtual-cs-conferences/</link>
       <pubDate>Wed, 18 Mar 2020 23:15:05 -0400</pubDate>
       
@@ -62,7 +62,7 @@ This is perhaps an unnecessarily graphic description of what research is like bu
     </item>
     
     <item>
-      <title>PhD @ Cornell: The Free Agent system</title>
+      <title>PhD@Cornell: The Free Agent system</title>
       <link>/post/free-agent-cornell/</link>
       <pubDate>Sat, 15 Dec 2018 08:27:21 +0530</pubDate>
       
