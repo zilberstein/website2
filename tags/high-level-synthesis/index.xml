@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>high-level synthesis on Rachit Nigam</title>
+    <link>/tags/high-level-synthesis/</link>
+    <description>Recent content in high-level synthesis on Rachit Nigam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;&amp;nbsp;Rachit Nigam 2018</copyright>
+    <lastBuildDate>Thu, 16 Apr 2020 11:59:11 -0400</lastBuildDate>
+    
+	<atom:link href="/tags/high-level-synthesis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Compiling for the Reconfigurable Future</title>
+      <link>/post/reconf-future/</link>
+      <pubDate>Thu, 16 Apr 2020 11:59:11 -0400</pubDate>
+      
+      <guid>/post/reconf-future/</guid>
+      <description>Moore&amp;rsquo;s law is in its death throes. With Global Foundries announcing that they are no longer pursuing 7nm production nodes, fabrication companies focusing on incremental improvements instead of doubling computing power, and the end of the arguably more important Denard&amp;rsquo;s scaling the death of computer architectures as we know them is coming close.
+While not obvious in text, I say &amp;ldquo;death of computer architectures&amp;rdquo; in the most optimistic way possible.</description>
+    </item>
+    
+  </channel>
+</rss>
