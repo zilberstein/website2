@@ -17,10 +17,10 @@
       
     
   
-  <meta name="description" content="Stopify was conditionally accepted to PLDI 2018!">
+  <meta name="description" content="Digital signal processors (DSPs) offer cutting-edge energy efficiency for embedded multimedia computations, but writing high-performance DSP code requires expert tuning. Programmers need to work at a low level of abstraction, manually tailoring vendor-specific instructions to enable vector and VLIW parallelism. Diospyros is a synthesizing compiler that searches for optimal data layouts to enable efficient vectorized code on DSPs. Preliminary results show that for small fixed-size matrix multiply and 2D convolution, Diospyros achieves a 6.4-7.6x speedup compared to vendor-provided optimized kernels, and a 6.5-31.3x speedup over loop-based kernels optimized with the vendor&#39;s included compiler.">
 
   
-  <link rel="alternate" hreflang="en-us" href="../../news/stopify-pldi2018/">
+  <link rel="alternate" hreflang="en-us" href="../../publication/dios-wip/">
 
   
 
@@ -62,22 +62,22 @@
   <meta property="twitter:creator" content="@notypes">
   
   <meta property="og:site_name" content="Rachit Nigam">
-  <meta property="og:url" content="/news/stopify-pldi2018/">
-  <meta property="og:title" content=" | Rachit Nigam">
-  <meta property="og:description" content="Stopify was conditionally accepted to PLDI 2018!">
+  <meta property="og:url" content="/publication/dios-wip/">
+  <meta property="og:title" content="A Synthesis-Aided Compiler for DSP Architectures  | Rachit Nigam">
+  <meta property="og:description" content="Digital signal processors (DSPs) offer cutting-edge energy efficiency for embedded multimedia computations, but writing high-performance DSP code requires expert tuning. Programmers need to work at a low level of abstraction, manually tailoring vendor-specific instructions to enable vector and VLIW parallelism. Diospyros is a synthesizing compiler that searches for optimal data layouts to enable efficient vectorized code on DSPs. Preliminary results show that for small fixed-size matrix multiply and 2D convolution, Diospyros achieves a 6.4-7.6x speedup compared to vendor-provided optimized kernels, and a 6.5-31.3x speedup over loop-based kernels optimized with the vendor&#39;s included compiler.">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-05-01T15:05:50-05:00">
+  <meta property="article:published_time" content="2020-04-25T22:13:28-04:00">
   
-  <meta property="article:modified_time" content="2018-05-01T15:05:50-05:00">
-  
-
+  <meta property="article:modified_time" content="2020-04-25T22:13:28-04:00">
   
 
   
 
   
-  <title>  | Rachit Nigam </title>
+
+  
+  <title> A Synthesis-Aided Compiler for DSP Architectures  | Rachit Nigam </title>
   
 
 </head>
@@ -192,70 +192,154 @@
   </div>
 </nav>
 
-
-<article class="article" itemscope itemtype="http://schema.org/Article">
+<div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
 
   
 
 
   <div class="article-container">
-    <h1 itemprop="name"></h1>
+
+    <h1 itemprop="name" style="margin-bottom: 0.25rem;">A Synthesis-Aided Compiler for DSP Architectures </h1>
 
     
-
-<div class="article-metadata">
-
-  
-
-  <span class="article-date">
+    <h2 style="margin-bottom: 0.5rem;margin-top: 0.25rem;">(WiP paper)</h2>
     
-    <meta content="2018-05-01 15:05:50 -0500 -0500" itemprop="datePublished">
-    <time datetime="2018-05-01 15:05:50 -0500 -0500" itemprop="dateModified">
-      May 1, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="">
-  </span>
 
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
+    <span class="pub-authors author-mla" itemprop="author">
+    
 
-  
-  
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
 
   
   
-
+    
+    <a href="https://www.cs.cornell.edu/~avh/" target="_blank" rel="noopener">Alexa&nbsp;VanHattum</a><sup>&diams;</sup>, 
+  
+    
+    <b style="color: black">Rachit&nbsp;Nigam</b><sup>&diams;</sup>, 
+  
+    
+    <a href="https://www.linkedin.com/in/vincent-lee-15685425" target="_blank" rel="noopener">Vincent&nbsp;Lee</a>, 
+  
+    
+    <a href="https://www.cs.utexas.edu/~bornholt/" target="_blank" rel="noopener">James&nbsp;Bornholt</a>, 
+  
+    
+    <a href="http://adriansampson.net" target="_blank" rel="noopener">Adrian&nbsp;Sampson</a>
   
 
+
+<div style="font-size:0.75rem; margin-top: 0.3rem; margin-bottom: 0.5rem; color:rgb(0,0,0,0.6)">
+(<sup>&diams;</sup> Equal contributors)
 </div>
 
 
-    <div class="article-style" itemprop="articleBody">
-      <p><a href="https://www.stopify.org/" rel="noreferrer" target="_blank">Stopify</a> was conditionally accepted to <a href="https://conf.researchr.org/home/pldi-2018" rel="noreferrer" target="_blank">PLDI 2018</a>!</p>
+    </span>
 
+    <span class="pull-right">
+      
+
+    </span>
+
+    
+
+    
+    <h3>Abstract</h3>
+    <p class="pub-abstract" itemprop="text">Digital signal processors (DSPs) offer cutting-edge energy efficiency for embedded multimedia computations, but writing high-performance DSP code requires expert tuning. Programmers need to work at a low level of abstraction, manually tailoring vendor-specific instructions to enable vector and VLIW parallelism. Diospyros is a synthesizing compiler that searches for optimal data layouts to enable efficient vectorized code on DSPs. Preliminary results show that for small fixed-size matrix multiply and 2D convolution, Diospyros achieves a 6.4-7.6x speedup compared to vendor-provided optimized kernels, and a 6.5-31.3x speedup over loop-based kernels optimized with the vendor&rsquo;s included compiler.</p>
+    
+
+    
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
+          <div class="col-xs-12 col-sm-9">International Conference on Languages, Compilers, and Tools for Embedded Systems</div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
     </div>
+    <div class="visible-xs space-below"></div>
+    
+
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
+          <div class="col-xs-12 col-sm-9" itemprop="datePublished">
+            April, 2020
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="visible-xs space-below"></div>
+
+    <div class="row" style="padding-top: 10px">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 pub-row-heading" style="line-height:34px;">Links</div>
+          <div class="col-xs-12 col-sm-9">
+
+            
+
+
+
+
+<a class="btn btn-primary btn-outline" href="../../files/pubs/dios-wip.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="visible-xs space-below"></div>
+
+    <div class="space-below"></div>
+
+    <div class="article-style"></div>
 
     
 
 
-    
-    
 
-    
-
-    
 
 
   </div>
-</article>
+</div>
+
+
 
 <footer class="site-footer">
   <div class="container">

@@ -17,7 +17,7 @@
       
     
   
-  <meta name="description" content="Moore&rsquo;s law is in its death throes. With Global Foundries announcing that they are no longer pursuing 7nm production nodes, fabrication companies focusing on incremental improvements instead of doubling computing power, and the end of the arguably more important Denard&rsquo;s scaling the death of computer architectures as we know them is coming close.
+  <meta name="description" content="Moore&rsquo;s law is in its death throes. With Global Foundries announcing that they are no longer pursuing 7nm production nodes, fabrication companies focusing on incremental improvements instead of doubling computing power, and the end of the arguably more important Dennard scaling the death of computer architectures as we know them is coming close.
 While not obvious in text, I say &ldquo;death of computer architectures&rdquo; in the most optimistic way possible.">
 
   
@@ -65,13 +65,13 @@ While not obvious in text, I say &ldquo;death of computer architectures&rdquo; i
   <meta property="og:site_name" content="Rachit Nigam">
   <meta property="og:url" content="/post/reconf-future/">
   <meta property="og:title" content="Compiling for the Reconfigurable Future | Rachit Nigam">
-  <meta property="og:description" content="Moore&rsquo;s law is in its death throes. With Global Foundries announcing that they are no longer pursuing 7nm production nodes, fabrication companies focusing on incremental improvements instead of doubling computing power, and the end of the arguably more important Denard&rsquo;s scaling the death of computer architectures as we know them is coming close.
+  <meta property="og:description" content="Moore&rsquo;s law is in its death throes. With Global Foundries announcing that they are no longer pursuing 7nm production nodes, fabrication companies focusing on incremental improvements instead of doubling computing power, and the end of the arguably more important Dennard scaling the death of computer architectures as we know them is coming close.
 While not obvious in text, I say &ldquo;death of computer architectures&rdquo; in the most optimistic way possible.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2020-04-16T11:59:11-04:00">
   
-  <meta property="article:modified_time" content="2020-04-21T12:35:14-04:00">
+  <meta property="article:modified_time" content="2020-04-16T11:59:11-04:00">
   
 
   
@@ -211,11 +211,9 @@ While not obvious in text, I say &ldquo;death of computer architectures&rdquo; i
 
   <span class="article-date">
     
-        Last updated on
-    
     <meta content="2020-04-16 11:59:11 -0400 -0400" itemprop="datePublished">
-    <time datetime="2020-04-21 12:35:14 -0400 -0400" itemprop="dateModified">
-      Apr 21, 2020
+    <time datetime="2020-04-16 11:59:11 -0400 -0400" itemprop="dateModified">
+      Apr 16, 2020
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -249,7 +247,7 @@ While not obvious in text, I say &ldquo;death of computer architectures&rdquo; i
 that they are no longer pursuing 7nm production nodes, fabrication companies
 focusing on <a href="https://www.anandtech.com/show/15217/intels-manufacturing-roadmap-from-2019-to-2029" rel="noreferrer" target="_blank">incremental improvements</a> instead of doubling
 computing power, and the end of the arguably more
-important <a href="https://en.wikipedia.org/wiki/Dennard_scaling" rel="noreferrer" target="_blank">Denard&rsquo;s scaling</a> the death of computer architectures
+important <a href="https://en.wikipedia.org/wiki/Dennard_scaling" rel="noreferrer" target="_blank">Dennard scaling</a> the death of computer architectures
 as we know them is coming close.</p>
 
 <p>While not obvious in text, I say &ldquo;death of computer architectures&rdquo; in the
@@ -279,8 +277,8 @@ executing an instruction.</p>
 </img>
 <figcaption>
 Fig 1.
-<a href="https://eecs.oregonstate.edu/research/vlsi/teaching/ECE471_WIN15/mark_horowitz_ISSCC_2014.pdf">Energy breakdown</a>
-of executing an add instruction on 45nm technology.
+Energy breakdown of executing an add instruction from
+&ldquo;<a href="https://ieeexplore.ieee.org/document/6757323" rel="noreferrer" target="_blank">Computing&rsquo;s Energy Problem</a>&rdquo; [Horowitz, 2014].
 </figcaption>
 </figure>
 </center></p>
@@ -301,15 +299,15 @@ the reconfigurability of meshes in <a href="http://opencelerity.org/" rel="noref
 reconfigurable architectures. In this post, we&rsquo;ll be focusing on Field
 Programmable Gate Arrays (FPGAs) as a reconfigurable accelerator.</p>
 
-<h3 id="fpgas-as-computational-accelerators">FPGAs as computational accelerators</h3>
+<h3 id="fpgas-as-computational-accelerators">FPGAs as Computational Accelerators</h3>
 
 <p>FPGAs were initially developed as high-performance simulators for circuit
 designs. As we started building more complicated hardware designs,
-contemporary processors could no longer simulate. This in turn
+contemporary processors could no longer simulate them. This in turn
 made it hard to test and verify designs&mdash;imagine trying to simulate an i3
 processor on a Pentium 4. FPGAs were designed as simulation accelerators. They
 provide <em>bit-level</em> reconfigurability which allows them to simulate wires and
-gates in a hardware design.</p>
+gates in a hardware design. <strong>TODO</strong>: These design decisions also made FPGAs as a viable</p>
 
 <p>FPGAs happily chugged along in this niche role for a long time till some really
 smart engineers at Microsoft demonstrated that FPGAs could be used as
@@ -318,7 +316,7 @@ its successor <a href="https://www.microsoft.com/en-us/research/project/project-
 improve the performance of modern large-scale applications, they provide enough
 flexibility to be used in multiple domains.</p>
 
-<h3 id="fpga-programming-101">FPGA programming 101</h3>
+<h3 id="fpga-programming-101">FPGA Programming 101</h3>
 
 <p>Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
 existing hardware design languages (HDLs). As a simulator for circuits, this is

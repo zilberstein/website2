@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>A Synthesis-Aided Compiler for DSP Architectures </title>
+      <link>/publication/dios-wip/</link>
+      <pubDate>Sat, 25 Apr 2020 22:13:28 -0400</pubDate>
+      
+      <guid>/publication/dios-wip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Compiling for the Reconfigurable Future</title>
       <link>/post/reconf-future/</link>
       <pubDate>Thu, 16 Apr 2020 11:59:11 -0400</pubDate>
@@ -22,7 +31,7 @@
 that they are no longer pursuing 7nm production nodes, fabrication companies
 focusing on &lt;a href=&#34;https://www.anandtech.com/show/15217/intels-manufacturing-roadmap-from-2019-to-2029&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;incremental improvements&lt;/a&gt; instead of doubling
 computing power, and the end of the arguably more
-important &lt;a href=&#34;https://en.wikipedia.org/wiki/Dennard_scaling&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Denard&amp;rsquo;s scaling&lt;/a&gt; the death of computer architectures
+important &lt;a href=&#34;https://en.wikipedia.org/wiki/Dennard_scaling&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Dennard scaling&lt;/a&gt; the death of computer architectures
 as we know them is coming close.&lt;/p&gt;
 
 &lt;p&gt;While not obvious in text, I say &amp;ldquo;death of computer architectures&amp;rdquo; in the
@@ -52,8 +61,8 @@ executing an instruction.&lt;/p&gt;
 &lt;/img&gt;
 &lt;figcaption&gt;
 Fig 1.
-&lt;a href=&#34;https://eecs.oregonstate.edu/research/vlsi/teaching/ECE471_WIN15/mark_horowitz_ISSCC_2014.pdf&#34;&gt;Energy breakdown&lt;/a&gt;
-of executing an add instruction on 45nm technology.
+Energy breakdown of executing an add instruction from
+&amp;ldquo;&lt;a href=&#34;https://ieeexplore.ieee.org/document/6757323&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Computing&amp;rsquo;s Energy Problem&lt;/a&gt;&amp;rdquo; [Horowitz, 2014].
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -74,15 +83,15 @@ the reconfigurability of meshes in &lt;a href=&#34;http://opencelerity.org/&#34;
 reconfigurable architectures. In this post, we&amp;rsquo;ll be focusing on Field
 Programmable Gate Arrays (FPGAs) as a reconfigurable accelerator.&lt;/p&gt;
 
-&lt;h3 id=&#34;fpgas-as-computational-accelerators&#34;&gt;FPGAs as computational accelerators&lt;/h3&gt;
+&lt;h3 id=&#34;fpgas-as-computational-accelerators&#34;&gt;FPGAs as Computational Accelerators&lt;/h3&gt;
 
 &lt;p&gt;FPGAs were initially developed as high-performance simulators for circuit
 designs. As we started building more complicated hardware designs,
-contemporary processors could no longer simulate. This in turn
+contemporary processors could no longer simulate them. This in turn
 made it hard to test and verify designs&amp;mdash;imagine trying to simulate an i3
 processor on a Pentium 4. FPGAs were designed as simulation accelerators. They
 provide &lt;em&gt;bit-level&lt;/em&gt; reconfigurability which allows them to simulate wires and
-gates in a hardware design.&lt;/p&gt;
+gates in a hardware design. &lt;strong&gt;TODO&lt;/strong&gt;: These design decisions also made FPGAs as a viable&lt;/p&gt;
 
 &lt;p&gt;FPGAs happily chugged along in this niche role for a long time till some really
 smart engineers at Microsoft demonstrated that FPGAs could be used as
@@ -91,7 +100,7 @@ its successor &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/p
 improve the performance of modern large-scale applications, they provide enough
 flexibility to be used in multiple domains.&lt;/p&gt;
 
-&lt;h3 id=&#34;fpga-programming-101&#34;&gt;FPGA programming 101&lt;/h3&gt;
+&lt;h3 id=&#34;fpga-programming-101&#34;&gt;FPGA Programming 101&lt;/h3&gt;
 
 &lt;p&gt;Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
 existing hardware design languages (HDLs). As a simulator for circuits, this is
@@ -1113,16 +1122,6 @@ on schools. Good luck!&lt;/p&gt;
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/news/volunteer-oopsla2018/</link>
-      <pubDate>Thu, 01 Nov 2018 15:05:09 -0500</pubDate>
-      
-      <guid>/news/volunteer-oopsla2018/</guid>
-      <description>&lt;p&gt;Student volunteer at &lt;a href=&#34;https://conf.researchr.org/track/splash-2018/splash-2018-OOPSLA&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;OOPSLA 2018&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
