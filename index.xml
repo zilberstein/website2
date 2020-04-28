@@ -27,29 +27,33 @@
       <guid>/post/reconf-future/</guid>
       <description>
 
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;A TLDR on why you should care.&lt;/strong&gt; FPGAs, a form of reconfigurable
+architectures, already power a large number of datacenter applications. With
+FPGA acceleration becoming mainstream, it is the perfect opportunity to think
+about programming models for designing next-generation high-performance
+hardware.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;Moore&amp;rsquo;s law is in its death throes. With Global Foundries &lt;a href=&#34;https://www.anandtech.com/show/13277/globalfoundries-stops-all-7nm-development&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;announcing&lt;/a&gt;
 that they are no longer pursuing 7nm production nodes, fabrication companies
-focusing on &lt;a href=&#34;https://www.anandtech.com/show/15217/intels-manufacturing-roadmap-from-2019-to-2029&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;incremental improvements&lt;/a&gt; instead of doubling
-computing power, and the end of the arguably more
-important &lt;a href=&#34;https://en.wikipedia.org/wiki/Dennard_scaling&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Dennard scaling&lt;/a&gt; the death of computer architectures
-as we know them is coming close.&lt;/p&gt;
-
-&lt;p&gt;While not obvious in text, I say &amp;ldquo;death of computer architectures&amp;rdquo; in the
-most optimistic way possible. With process scaling coming to an end, it will
-be difficult to find raw silicon speedups and require us to come up with
-interesting architectures to tackle the future of computing. Reconfigurable
-architectures are one of the hottest research topics and perhaps hold the
-key to domain-specific hardware acceleration.&lt;/p&gt;
+focusing on &lt;a href=&#34;https://www.anandtech.com/show/15217/intels-manufacturing-roadmap-from-2019-to-2029&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;incremental improvements&lt;/a&gt;, and the end of the
+arguably more important &lt;a href=&#34;https://en.wikipedia.org/wiki/Dennard_scaling&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Dennard scaling&lt;/a&gt;, we&amp;rsquo;re entering a new
+era where general purpose architectures are no longer the solution.
+Reconfigurable architectures are one of the hottest research topics and perhaps
+hold the key to application-specific hardware acceleration. However, without
+a sane programming model, reconfigurable architectures might not achieve the
+success they deserve.&lt;/p&gt;
 
 &lt;h3 id=&#34;reconfigurable-architectures&#34;&gt;Reconfigurable Architectures&lt;/h3&gt;
 
-&lt;p&gt;Since the dawn of computer architecture, we&amp;rsquo;ve been trying to build processors
+&lt;p&gt;Since the dawn of computer architecture, we&amp;rsquo;ve focused on building processors
 that are good at executing &lt;em&gt;every&lt;/em&gt; conceivable program. The advances in
 pipelined designs, speculative and out-of-order execution all try to
 dynamically discover regularity and parallelism in arbitrary programs and
 execute them as fast as possible. The performance benefits of these technologies
-are inarguable. However, all good things come at a price. In their single
-minded zealotry to improve single threaded performance, processors introduce
+are inarguable. However, all good things come at a price. In their
+single-minded zealotry to improve single threaded performance, processors introduce
 an incredible amount of &lt;em&gt;control overhead&lt;/em&gt;. Figure 1 shows the energy
 breakdown of executing an add instruction. The control dominates the cost of
 executing an instruction.&lt;/p&gt;
@@ -68,7 +72,7 @@ Energy breakdown of executing an add instruction from
 &lt;/center&gt;&lt;/p&gt;
 
 &lt;p&gt;So while modern processors
-can execute programs quickly, they leave a lot of room for improvement
+can execute arbitrary programs quickly, they leave a lot of room for improvement
 with an individual program.
 Instead of paying for the cost of the general control structures in every program,
 what if your processor could pay for the exactly the amount of control required
@@ -86,33 +90,53 @@ Programmable Gate Arrays (FPGAs) as a reconfigurable accelerator.&lt;/p&gt;
 &lt;h3 id=&#34;fpgas-as-computational-accelerators&#34;&gt;FPGAs as Computational Accelerators&lt;/h3&gt;
 
 &lt;p&gt;FPGAs were initially developed as high-performance simulators for circuit
-designs. As we started building more complicated hardware designs,
-contemporary processors could no longer simulate them. This in turn
-made it hard to test and verify designs&amp;mdash;imagine trying to simulate an i3
+designs. Testing a hardware design requires simulating its behavior over
+thousands of clock cycles. With larger and more complex, the computational
+power required to simulate and track the state of a design becomes increasingly
+hard. Unfortunately, simulating a hardware design on a traditional processor
+does not scale&amp;mdash;imagine trying to simulate an i3
 processor on a Pentium 4. FPGAs were designed as simulation accelerators. They
 provide &lt;em&gt;bit-level&lt;/em&gt; reconfigurability which allows them to simulate wires and
-gates in a hardware design. &lt;strong&gt;TODO&lt;/strong&gt;: These design decisions also made FPGAs as a viable&lt;/p&gt;
+gates in a hardware design.&lt;/p&gt;
 
-&lt;p&gt;FPGAs happily chugged along in this niche role for a long time till some really
-smart engineers at Microsoft demonstrated that FPGAs could be used as
-computational accelerators through the &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-catapult/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Catapult&lt;/a&gt; project. Catapult, and
-its successor &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-brainwave/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;BrainWave&lt;/a&gt;, showed that not only can FPGAs significantly
-improve the performance of modern large-scale applications, they provide enough
-flexibility to be used in multiple domains.&lt;/p&gt;
+&lt;p&gt;The bit-level reconfigurability also made FPGAs
+viable as a cheaper, low-volume alternate to application specific integrated
+circuits (ASICs). Instead of taping-out custom chips, FPGAs could be used to
+prototype and integrate such accelerators without paying for a full
+silicon tape-out. In domains like
+signal processing or networking, where real-time deadlines really matter and
+CPUs struggle to meet high-throughput requirements, FPGAs were successfully
+used as computational accelerators. The common thread in all of these use cases
+is that we really want to design custom circuits but don&amp;rsquo;t want to pay the
+costs of producing a whole new chip.&lt;/p&gt;
+
+&lt;p&gt;FPGAs happily chugged along in these niche roles for a long time without taking
+off in a big way. Researchers knew that FPGAs could play a big role as flexible
+accelerators but didn&amp;rsquo;t have a &amp;ldquo;killer app&amp;rdquo;. Between 2010-2016, an exceptional
+team of computer architects demonstrated
+that FPGAs could be used as
+computational accelerators &lt;em&gt;inside datacenters&lt;/em&gt; through the &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-catapult/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Catapult&lt;/a&gt;
+project. Catapult, and its successor &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/project-brainwave/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;BrainWave&lt;/a&gt;, showed that not only can
+FPGAs significantly improve the performance of modern large-scale applications,
+they provide enough flexibility to be used in multiple domains, accelerating
+everything from Bing search, Azure cloud network, and most recently, ML models.&lt;/p&gt;
+
+&lt;p&gt;Other cloud services like AWS have jumped on this trend and now offer &lt;a href=&#34;https://aws.amazon.com/education/F1-instances-for-educators/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;F1
+instances&lt;/a&gt; which provide access to high-end FPGA units through AWS&amp;rsquo;s
+pay-what-you-use model.&lt;/p&gt;
 
 &lt;h3 id=&#34;fpga-programming-101&#34;&gt;FPGA Programming 101&lt;/h3&gt;
 
 &lt;p&gt;Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
-existing hardware design languages (HDLs). As a simulator for circuits, this is
+existing hardware design languages (HDLs). As a circuit simulator, this is
 a really good idea. You can simply take your preexisting hardware design and
-run it on an FPGA&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+run it on an FPGA.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;p&gt;Unfortunately, when trying to run high-level application code, like a matrix
-multiply or a convolution kernel, the level of abstraction provided by HDLs
-is far too low-level.
+&lt;p&gt;Unfortunately, when trying to run high-level application code
+the level of abstraction afforded by HDLs is far too low-level.
 Imagine
-trying to write a convolution by specifying every wire connection
-into every adder. Proponents
+trying to write a convolution kernel by specifying every wire connection
+into every adder and the computation that occurs at every clock cycle. Proponents
 of HDLs will point out that we can eek out every bit of performance from a
 low-level hardware design. However, this also means that design iteration times
 are much worse. It can take many weeks of engineering effort to implement
@@ -126,12 +150,10 @@ in some manner. For example, Chisel is embedded in Scala and provides
 modularity and parameterization mechanisms using Scala&amp;rsquo;s type system.
 However, HDLs still &lt;em&gt;fundamentally&lt;/em&gt; operate at the gate-and-wire
 level of abstraction. Chisel designs, after being typechecked by the Scala
-compiler, are expanded into a structural specification of the hardware design.
-The level of reasoning is still at the structural level or &lt;em&gt;how&lt;/em&gt; to compute
-a values instead of a computational one, or &lt;em&gt;what&lt;/em&gt; values to compute.&lt;/p&gt;
+compiler, are expanded into a structural specification of the hardware design.&lt;/p&gt;
 
 &lt;p&gt;A more radical technique to lift the level of abstraction would be to specify
-&lt;em&gt;how&lt;/em&gt; the computation occurs and use a compiler to generate the hardware to
+&lt;em&gt;how&lt;/em&gt; the computation occurs and use a compiler to generate the hardware for
 that specification. The architecture community has been exploring the idea
 of transforming behavioral (or functional) descriptions of computation
 into hardware designs. This is commonly referred to High-Level Synthesis (HLS)
@@ -146,22 +168,38 @@ from &lt;a href=&#34;https://ieeexplore.ieee.org/document/1466178&#34; rel=&#34;
 accelerators&lt;/a&gt; has been implemented in HLS.&lt;/p&gt;
 
 &lt;p&gt;The semantic gap between a functional description and timed hardware structures
-is quite large. A hardware design is called &lt;em&gt;timed&lt;/em&gt; because it describes the
-behavior individual circuits at the granularity of clock cycles. An HLS
+is quite large. Hardware designs are &lt;em&gt;timed&lt;/em&gt; because they explicitly describe
+the
+behavior of individual circuits at the granularity of clock cycles. An HLS
 compiler needs to transform the functional description into a &lt;em&gt;data path&lt;/em&gt;,
-which describes the hardware structures that can perform computations, and
+which describes the hardware structures that perform computations, and
 a &lt;em&gt;control path&lt;/em&gt;, which describes the computation performed by components every
 cycle.&lt;/p&gt;
 
-&lt;p&gt;In bridging the humongous semantics gap between hardware sequential C++ program
-and concurrent hardware design, HLS brings in its own set of problems. I&amp;rsquo;ll
-cover these problems in a future blog post.&lt;/p&gt;
+&lt;p&gt;The promise of transforming &lt;em&gt;any&lt;/em&gt; C++ program into hardware is absurd at its
+face. C++ programs dynamically allocate memory, use complicated control
+structures, and are notoriously hard to analyze. Compare this to physical
+hardware where memory sizes and control structures need to statically generated
+at compile time.&lt;/p&gt;
 
-&lt;p&gt;If you&amp;rsquo;re curious about this area, jump onto these cool blog posts:&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll leave the specifics of where HLS fails for a future blog post. If you&amp;rsquo;re
+curious, dive into &lt;a href=&#34;./files/pubs/dahlia.pdf&#34;&gt;our paper&lt;/a&gt; on &lt;a href=&#34;https://capra.cs.cornell.edu/dahlia&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Dahlia&lt;/a&gt; which identifies
+some of these problems and shows how little bit of programming languages magic
+can help.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re curious about this area, jump onto these cool blog posts and papers:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.cs.cornell.edu/~asampson/blog/fpgaabstraction.html&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;FPGAs Have the Wrong Abstraction&lt;/a&gt; by Adrian Sampson.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/document/5737854?tp=&amp;amp;arnumber=5737854&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;High-Level Synthesis for FPGAs: From Prototyping to Development&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/en-us/research/wp-content/uploads/2016/10/Cloud-Scale-Acceleration-Architecture.pdf&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;A Cloud-Scale Acceleration Architecture&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;(If you&amp;rsquo;ve written a blog post on HLS-related stuff, email it to me so I can
+add it here!)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for &lt;a href=&#34;http://adriansampson.net&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Adrian Sampson&lt;/a&gt; and &lt;a href=&#34;https://www.cs.cornell.edu/~avh/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Alexa VanHattum&lt;/a&gt; for providing feedback on early
+drafts of this blog post&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Have comments? &lt;a href=&#34;mailto:rachit.nigam12@gmail.com&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Email&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/notypes&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;tweet&lt;/a&gt; at me.&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
