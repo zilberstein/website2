@@ -27,6 +27,8 @@
       <guid>/post/predictable-accelerator-design/</guid>
       <description>
 
+&lt;p&gt;&lt;strong&gt;THIS IS A DRAFT POST. DO NOT DISTRIBUTE.&lt;/strong&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
 &lt;p&gt;This is quick overview of my research on &lt;a href=&#34;./publication/dahlia&#34;&gt;Dahlia&lt;/a&gt;, a
 new programming language that leverages sub-structural types to make hardware
@@ -228,7 +230,7 @@ performance.&amp;rdquo;&lt;/p&gt;
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;The presented results use real data from synthesizing and running FPGA designs using [Vivado HLS 2018][vhls-2018] on [AWS F1][] instances. Check out &lt;a href=&#34;./files/pubs/dahlia.pdf&#34;&gt;our paper&lt;/a&gt; for full details.
+&lt;li id=&#34;fn:1&#34;&gt;The presented results use real data from synthesizing and running FPGA designs using &lt;a href=&#34;https://www.xilinx.com/products/design-tools/vivado/integration/esl-design.html&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Vivado HLS&lt;/a&gt; on &lt;a href=&#34;https://aws.amazon.com/ec2/instance-types/f1/&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;AWS F1&lt;/a&gt; instances. Check out &lt;a href=&#34;./files/pubs/dahlia.pdf&#34;&gt;our paper&lt;/a&gt; for full details.
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&#34;fn:2&#34;&gt;Real FPGA memories are slightly more complicated because they have several &lt;em&gt;memory ports&lt;/em&gt;. Each memory port allows one read/write every clock cycle.
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;↩&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;

@@ -18,7 +18,8 @@
       <pubDate>Tue, 21 Apr 2020 11:33:43 -0400</pubDate>
       
       <guid>/post/predictable-accelerator-design/</guid>
-      <description>This is quick overview of my research on Dahlia, a new programming language that leverages sub-structural types to make hardware design predictable.
+      <description>THIS IS A DRAFT POST. DO NOT DISTRIBUTE.
+ This is quick overview of my research on Dahlia, a new programming language that leverages sub-structural types to make hardware design predictable.
  This blog post assumes some familiarity with reconfigurable architectures and High-Level Synthesis. If you want a quick overview on those, check out my blog post on compiling for the reconfigurable future.
 High-Level Synthesis (HLS) is the idea of transforming functional descriptions of programs into performant and efficient hardware designs.</description>
     </item>
