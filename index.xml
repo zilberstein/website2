@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title></title>
+      <link>/news/latte-21/</link>
+      <pubDate>Wed, 13 Jan 2021 17:04:09 -0500</pubDate>
+      
+      <guid>/news/latte-21/</guid>
+      <description>&lt;p&gt;Organized the &lt;a href=&#34;https://capra.cs.cornell.edu/latte21&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;first workshop on Languages, Tools, and Techniques for Accelerator
+Design&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Vectorization for Digital Signal Processors via Equality Saturation</title>
       <link>/publication/diospyros/</link>
       <pubDate>Wed, 13 Jan 2021 16:59:22 -0500</pubDate>
@@ -718,16 +729,6 @@ junior researchers have when we come up with solutions for virtual conferences.&
       
       <guid>/publication/dahlia/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/news/aec-pldi2020/</link>
-      <pubDate>Sat, 01 Feb 2020 15:01:20 -0500</pubDate>
-      
-      <guid>/news/aec-pldi2020/</guid>
-      <description>&lt;p&gt;Member of the PLDI 2020 &lt;a href=&#34;https://pldi20.sigplan.org/track/pldi-2020-PLDI-Research-Artifacts&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Artifact Evaluation Committee&lt;/a&gt;.&lt;/p&gt;
-</description>
     </item>
     
   </channel>
