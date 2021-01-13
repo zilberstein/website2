@@ -17,10 +17,10 @@
       
     
   
-  <meta name="description" content="Scores of compilers produce JavaScript, enabling programmers to use many languages on the Web, reuse existing code, and even use Web IDEs.  Unfortunately, most compilers inherit the browser&#39;s compromised execution model, so long-running programs freeze the browser tab, infinite loops crash IDEs, and so on. The few compilers that avoid these problems suffer poor performance and are difficult to engineer.&lt;br/&gt; &amp;nbsp; &amp;nbsp; This paper presents Stopify, a source-to-source compiler that extends JavaScript with debugging abstractions and blocking operations, and easily integrates with existing compilers. We apply Stopify to 10 programming languages and develop a Web IDE that supports stopping, single-stepping, breakpointing, and long-running computations. For nine languages, Stopify requires no or trivial compiler changes. For eight, our IDE is the first that provides these features. Two of our subject languages have compilers with similar features.&lt;br/&gt; &amp;nbsp; &amp;nbsp; Stopify&#39;s performance is competitive with these compilers and it makes them dramatically simpler.  Stopify&#39;s abstractions rely on first-class continuations, which it provides by compiling JavaScript to JavaScript. We also identify sub-languages of JavaScript that compilers implicitly use, and exploit these to improve performance. Finally, Stopify needs to repeatedly interrupt and resume program execution. We use a sampling-based technique to estimate program speed that outperforms other systems.">
+  <meta name="description" content="">
 
   
-  <link rel="alternate" hreflang="en-us" href="../../publication/stopify/">
+  <link rel="alternate" hreflang="en-us" href="../../publication/calyx/">
 
   
 
@@ -62,22 +62,22 @@
   <meta property="twitter:creator" content="@notypes">
   
   <meta property="og:site_name" content="Rachit Nigam">
-  <meta property="og:url" content="/publication/stopify/">
-  <meta property="og:title" content="Putting in All the Stops: | Rachit Nigam">
-  <meta property="og:description" content="Scores of compilers produce JavaScript, enabling programmers to use many languages on the Web, reuse existing code, and even use Web IDEs.  Unfortunately, most compilers inherit the browser&#39;s compromised execution model, so long-running programs freeze the browser tab, infinite loops crash IDEs, and so on. The few compilers that avoid these problems suffer poor performance and are difficult to engineer.&lt;br/&gt; &amp;nbsp; &amp;nbsp; This paper presents Stopify, a source-to-source compiler that extends JavaScript with debugging abstractions and blocking operations, and easily integrates with existing compilers. We apply Stopify to 10 programming languages and develop a Web IDE that supports stopping, single-stepping, breakpointing, and long-running computations. For nine languages, Stopify requires no or trivial compiler changes. For eight, our IDE is the first that provides these features. Two of our subject languages have compilers with similar features.&lt;br/&gt; &amp;nbsp; &amp;nbsp; Stopify&#39;s performance is competitive with these compilers and it makes them dramatically simpler.  Stopify&#39;s abstractions rely on first-class continuations, which it provides by compiling JavaScript to JavaScript. We also identify sub-languages of JavaScript that compilers implicitly use, and exploit these to improve performance. Finally, Stopify needs to repeatedly interrupt and resume program execution. We use a sampling-based technique to estimate program speed that outperforms other systems.">
+  <meta property="og:url" content="/publication/calyx/">
+  <meta property="og:title" content="A Compiler Infrastructure for Accelerator Generators | Rachit Nigam">
+  <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-06-28T15:39:56-07:00">
+  <meta property="article:published_time" content="2021-01-13T16:47:31-05:00">
   
-  <meta property="article:modified_time" content="2018-06-28T15:39:56-07:00">
-  
-
+  <meta property="article:modified_time" content="2021-01-13T16:47:31-05:00">
   
 
   
 
   
-  <title> Putting in All the Stops: | Rachit Nigam </title>
+
+  
+  <title> A Compiler Infrastructure for Accelerator Generators | Rachit Nigam </title>
   
 
 </head>
@@ -202,10 +202,8 @@
 
   <div class="article-container">
 
-    <h1 itemprop="name" style="margin-bottom: 0.25rem;">Putting in All the Stops:</h1>
+    <h1 itemprop="name" style="margin-bottom: 0.25rem;">A Compiler Infrastructure for Accelerator Generators</h1>
 
-    
-    <h2 style="margin-bottom: 0.5rem;margin-top: 0.25rem;">Execution Control for JavaScript</h2>
     
 
     <span class="pub-authors author-mla" itemprop="author">
@@ -230,21 +228,22 @@
   
   
     
-    <a href="https://baxtersa.github.io/about/" target="_blank" rel="noopener">Sam&nbsp;Baxter</a>, 
+    <b style="color: black">Rachit&nbsp;Nigam</b><sup>&diams;</sup>, 
   
     
-    <b style="color: black">Rachit&nbsp;Nigam</b>, 
+    <a href="https://sgtpeacock.com/" target="_blank" rel="noopener">Samuel&nbsp;Thomas</a><sup>&diams;</sup>, 
   
     
-    <a href="https://jpolitz.github.io/" target="_blank" rel="noopener">Joe&nbsp;Gibbs&nbsp;Politz</a>, 
+    <a href="https://tissue3.github.io/" target="_blank" rel="noopener">Zhijing&nbsp;Li</a>, 
   
     
-    <a href="http://cs.brown.edu/~sk/" target="_blank" rel="noopener">Shriram&nbsp;Krishnamurthi</a>, 
-  
-    
-    <a href="http://people.cs.umass.edu/arjun" target="_blank" rel="noopener">Arjun&nbsp;Guha</a>
+    <a href="http://adriansampson.net" target="_blank" rel="noopener">Adrian&nbsp;Sampson</a>
   
 
+
+<div style="font-size:0.75rem; margin-top: 0.3rem; margin-bottom: 0.5rem; color:rgb(0,0,0,0.6)">
+(<sup>&diams;</sup> Equal contributors)
+</div>
 
 
     </span>
@@ -257,9 +256,6 @@
     
 
     
-    <h3>Abstract</h3>
-    <p class="pub-abstract" itemprop="text">Scores of compilers produce JavaScript, enabling programmers to use many languages on the Web, reuse existing code, and even use Web IDEs.  Unfortunately, most compilers inherit the browser&rsquo;s compromised execution model, so long-running programs freeze the browser tab, infinite loops crash IDEs, and so on. The few compilers that avoid these problems suffer poor performance and are difficult to engineer.<br/> &nbsp; &nbsp; This paper presents Stopify, a source-to-source compiler that extends JavaScript with debugging abstractions and blocking operations, and easily integrates with existing compilers. We apply Stopify to 10 programming languages and develop a Web IDE that supports stopping, single-stepping, breakpointing, and long-running computations. For nine languages, Stopify requires no or trivial compiler changes. For eight, our IDE is the first that provides these features. Two of our subject languages have compilers with similar features.<br/> &nbsp; &nbsp; Stopify&rsquo;s performance is competitive with these compilers and it makes them dramatically simpler.  Stopify&rsquo;s abstractions rely on first-class continuations, which it provides by compiling JavaScript to JavaScript. We also identify sub-languages of JavaScript that compilers implicitly use, and exploit these to improve performance. Finally, Stopify needs to repeatedly interrupt and resume program execution. We use a sampling-based technique to estimate program speed that outperforms other systems.</p>
-    
 
     
     <div class="row">
@@ -267,7 +263,7 @@
       <div class="col-sm-10">
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
-          <div class="col-xs-12 col-sm-9">Programming Languages Design and Implementation</div>
+          <div class="col-xs-12 col-sm-9">Conference on Architectural Support for Programming Languages and Operating Systems</div>
         </div>
       </div>
       <div class="col-sm-1"></div>
@@ -281,7 +277,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
           <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-            June, 2018
+            January, 2021
           </div>
         </div>
       </div>
@@ -301,15 +297,11 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="../../files/pubs/stopify-pldi18.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
 
 
 
 
-
-<a class="btn btn-primary btn-outline" href="https://github.com/plasma-umass/stopify" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="https://github.com/cucapra/futil" target="_blank" rel="noopener">
   Code
 </a>
 
@@ -319,16 +311,12 @@
 
 
 
-
-<a class="btn btn-primary btn-outline" href="https://www.youtube.com/watch?v=M8PEWKQh2k4&amp;feature=youtu.be" target="_blank" rel="noopener">
-  Video
+<a class="btn btn-primary btn-outline" href="../../files/slides/calyx.pdf" target="_blank" rel="noopener">
+  Slides
 </a>
 
 
 
-<a class="btn btn-primary btn-outline" href="http://stopify.org" target="_blank" rel="noopener">
-  Demo
-</a>
 
 
 

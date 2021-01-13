@@ -11,6 +11,24 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Vectorization for Digital Signal Processors via Equality Saturation</title>
+      <link>/publication/diospyros/</link>
+      <pubDate>Wed, 13 Jan 2021 16:59:22 -0500</pubDate>
+      
+      <guid>/publication/diospyros/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Compiler Infrastructure for Accelerator Generators</title>
+      <link>/publication/calyx/</link>
+      <pubDate>Wed, 13 Jan 2021 16:47:31 -0500</pubDate>
+      
+      <guid>/publication/calyx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/news/futil-asplos/</link>
       <pubDate>Wed, 18 Nov 2020 15:52:37 -0500</pubDate>
@@ -709,26 +727,6 @@ junior researchers have when we come up with solutions for virtual conferences.&
       
       <guid>/news/aec-pldi2020/</guid>
       <description>&lt;p&gt;Member of the PLDI 2020 &lt;a href=&#34;https://pldi20.sigplan.org/track/pldi-2020-PLDI-Research-Artifacts&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Artifact Evaluation Committee&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/news/dahlia-princeton/</link>
-      <pubDate>Sun, 01 Sep 2019 15:02:33 -0500</pubDate>
-      
-      <guid>/news/dahlia-princeton/</guid>
-      <description>&lt;p&gt;Gave an invited talk on Dahlia at Princeton.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/news/frl2019/</link>
-      <pubDate>Wed, 01 May 2019 15:03:23 -0500</pubDate>
-      
-      <guid>/news/frl2019/</guid>
-      <description>&lt;p&gt;Research intern at &lt;a href=&#34;https://www.facebook.com/careers/areas-of-work/facebookrealitylabs/?teams[0]=Facebook%20Reality%20Labs&#34; rel=&#34;noreferrer&#34; target=&#34;_blank&#34;&gt;Facebook Reality Labs&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

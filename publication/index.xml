@@ -13,6 +13,24 @@
     
     
     <item>
+      <title>Vectorization for Digital Signal Processors via Equality Saturation</title>
+      <link>/publication/diospyros/</link>
+      <pubDate>Wed, 13 Jan 2021 16:59:22 -0500</pubDate>
+      
+      <guid>/publication/diospyros/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Compiler Infrastructure for Accelerator Generators</title>
+      <link>/publication/calyx/</link>
+      <pubDate>Wed, 13 Jan 2021 16:47:31 -0500</pubDate>
+      
+      <guid>/publication/calyx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>A Synthesis-Aided Compiler for DSP Architectures </title>
       <link>/publication/dios-wip/</link>
       <pubDate>Sat, 25 Apr 2020 22:13:28 -0400</pubDate>
