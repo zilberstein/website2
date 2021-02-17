@@ -113,7 +113,15 @@ pay-what-you-use model.&lt;&#x2F;p&gt;
 &lt;p&gt;Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
 existing hardware design languages (HDLs). As a circuit simulator, this is
 a really good idea. You can simply take your preexisting hardware design and
-run it on an FPGA.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+run it on an FPGA.&lt;label for=&quot;sn-1&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-1&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+I apologize to my architect friends. Running designs on an FPGA in reality can be an incredible challenge. FPGAs have different kinds of memory and performance characteristics. Most hardware design codebases are carefully engineered to separate FPGA-specific design decisions from the core design.
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Unfortunately, when trying to run high-level application code
 the level of abstraction afforded by HDLs is far too low-level.
 Imagine
@@ -139,8 +147,27 @@ of transforming behavioral (or functional) descriptions of computation
 into hardware designs. This is commonly referred to High-Level Synthesis (HLS)
 in the community.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;high-level-synthesis&quot;&gt;High-Level Synthesis&lt;&#x2F;h2&gt;
-&lt;p&gt;High-Level Synthesis&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; is the idea of compiling a computational description
-in a high-level programming language&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#4&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;, like C or C++, into an HDL like
+&lt;p&gt;High-Level Synthesis &lt;label for=&quot;sn-2&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-2&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+&amp;quot;Synthesis&amp;quot; is borrowed from hardware design workflows—circuits are synthesized into silicon. This is just a compiler.
+&lt;&#x2F;span&gt;
+is the idea of compiling a computational description
+in a high-level programming language, &lt;label for=&quot;sn-3&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-3&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+Architects operate at the level of gates, wires, and clocks. C++ is a huge
+jump in abstractions.
+&lt;&#x2F;span&gt;
+like C or C++, into an HDL like
 Verilog. HLS has been quite successful in a multitude of domains—everything
 from &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;1466178&quot;&gt;digital signal processing&lt;&#x2F;a&gt; to &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3020078.3021741&quot;&gt;machine learning
 accelerators&lt;&#x2F;a&gt; has been implemented in HLS.&lt;&#x2F;p&gt;
@@ -172,16 +199,6 @@ add it here!)&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;Thanks for &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;adriansampson.net&quot;&gt;Adrian Sampson&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.cs.cornell.edu&#x2F;%7Eavh&#x2F;&quot;&gt;Alexa VanHattum&lt;&#x2F;a&gt; for providing feedback on early
 drafts of this blog post&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;Have comments? &lt;a href=&quot;mailto:rachit.nigam12@gmail.com&quot;&gt;Email&lt;&#x2F;a&gt; or &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;notypes&quot;&gt;tweet&lt;&#x2F;a&gt; at me.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;hr &#x2F;&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
-&lt;p&gt;I apologize to my architect friends. Running designs on an FPGA in reality can be an incredible challenge. FPGAs have different kinds of memory and performance characteristics. Most hardware design codebases are carefully engineered to separate FPGA-specific design decisions from the core design.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
-&lt;p&gt;Architects adopted the “Synthesis” terminology from hardware design workflows. A hardware design is &lt;em&gt;synthesized&lt;&#x2F;em&gt; into silicon. Since we’re now generating designs from a high-level language, we’ll call it “High-level Synthesis”. From a compiler&#x2F;programming languages viewpoint, this is just a compiler.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;4&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
-&lt;p&gt;The choice of C or C++ as a “high-level language” might seem odd but to architects, who operate at the level clock cycles and hardware structures, C++ is a huge jump in abstraction.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
@@ -683,14 +700,33 @@ research is like and helped me redefine what “success” should mean.&lt;&#x2F
 &lt;p&gt;Here is a quick summary of my research experience as an undergrad:&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;spring-2016&quot;&gt;Spring 2016&lt;&#x2F;h3&gt;
 &lt;p&gt;I reached out a my undergraduate advisor in my first semester after being
-fascinated with Scheme&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. After some back and forth, I quickly started
+fascinated with Scheme.&lt;label for=&quot;sn-1&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-1&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+Yes, I am a walking PL cliché.
+&lt;&#x2F;span&gt;
+After some back and forth, I quickly started
 a project. The project was to build a formal semantics for bash scripts. The
 bash specification is large and complicated with a lot of subtle interactions.
 The particular phase we were interested in formalizing were the bash shell
 &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;bash&#x2F;manual&#x2F;html_node&#x2F;Shell-Expansions.html&quot;&gt;expansions&lt;&#x2F;a&gt;. We tried to build a Hoare logic style semantics for the expansion, because
 we wanted to ultimately verify properties of these shell scripts. Unfortunately,
 I showed that such a semantics becomes super complicated and we abandoned the
-project&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. A few weeks into research and I had already failed a project.&lt;&#x2F;p&gt;
+project.&lt;label for=&quot;sn-2&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-2&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+Michael Greenberg, one of our collaborators, continued working on this and has
+come up with some &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;shell.cs.pomona.edu&#x2F;&quot;&gt;nice results&lt;&#x2F;a&gt;.
+&lt;&#x2F;span&gt;
+A few weeks into research and I had already failed a project.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;summer-2016&quot;&gt;Summer 2016&lt;&#x2F;h3&gt;
 &lt;p&gt;I came back for the summer and started working on a new, and slightly related
 project. The idea was to extend previous work on &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;2908080.2908083&quot;&gt;verifying Puppet
@@ -718,12 +754,30 @@ People on the project had built a frontend that could take JavaScript code and
 compile it into something that could enforces security conditions.
 Around the same time, the Puppet synthesis project slowed down because the
 first author was applying to graduate schools and I was focusing more on
-Fission. Eventually, I stopped working on Puppet synthesis entirely and even
-though it was eventually published&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+Fission. Eventually, I stopped working on Puppet synthesis entirely.&lt;label for=&quot;sn-3&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-3&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+This eventually became a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;aaronweiss.us&#x2F;pubs&#x2F;ase17.pdf&quot;&gt;paper&lt;&#x2F;a&gt;.
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;To cap off the depressing string of half completed projects, it was around this
 time I actually had minor clinical depression and my productivity collapsed. After
 attending &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;conf.researchr.org&#x2F;home&#x2F;icfp-2016&quot;&gt;ICFP ’16&lt;&#x2F;a&gt; I decided to
-start therapy to “fix” my clinical depression&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#4&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+start therapy to “fix” my clinical depression.&lt;label for=&quot;sn-4&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-4&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+Researchers are people who sometimes work extraordinarily hard at the expense
+of their own health.
+It is important to realize that your work is significantly
+less important that your health.
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Meanwhile, we also published a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;drops.dagstuhl.de&#x2F;opus&#x2F;volltexte&#x2F;2017&#x2F;7124&#x2F;pdf&#x2F;LIPIcs-SNAPL-2017-5.pdf&quot;&gt;workshop
 paper&lt;&#x2F;a&gt;
 on Fission. Unfortunately, after several rewrites of the compiler, people
@@ -787,22 +841,11 @@ given the opportunity to fail. When I started my PhD, I had no illusions
 about what research was: it requires a religious amount of faith and hard work
 before you can see any progress.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;Have comments? &lt;a href=&quot;mailto:rachit.nigam12@gmail.com&quot;&gt;Email&lt;&#x2F;a&gt; or &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;notypes&quot;&gt;tweet&lt;&#x2F;a&gt; at me.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
-&lt;p&gt;Yes, I am a walking PL cliché.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
-&lt;p&gt;Michael Greenberg, one of our collaborators, continued working on this and has come up with some &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;shell.cs.pomona.edu&#x2F;&quot;&gt;nice results&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
-&lt;p&gt;This eventually became a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;aaronweiss.us&#x2F;pubs&#x2F;ase17.pdf&quot;&gt;paper&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;4&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;4&lt;&#x2F;sup&gt;
 &lt;p&gt;Researchers are people who sometimes work extraordinarily hard at the expense of their own health. It is important to realize that your work is significantly less important that your health.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
-		<title>PhD@Cornell: The Free Agent system</title>
+		<title>PhD@Cornell: The Free Agent System</title>
 		<published>2018-12-15T08:27:21+05:30</published>
 		<updated>2018-12-15T08:27:21+05:30</updated>
 		<link href="https://rachitnigam.com/post/free-agent-cornell/" type="text/html"/>
@@ -825,7 +868,7 @@ different.  When a PhD student is admitted to Cornell, they are are &lt;em&gt;ad
 to the department&lt;&#x2F;em&gt;, which highlights Cornell’s commitment towards the student’s
 academic freedom. Concretely, this means that Cornell guarantees funding,
 usually through teaching assistantship, for the student without tying them to
-an advisor &lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.  This is supposed to allow the students to explore and talk to
+an advisor.  This is supposed to allow the students to explore and talk to
 potential advisors without being worried about funding. This is the Free Agent
 system at Cornell. Students are free agents till they decide who they want to
 work with.&lt;&#x2F;p&gt;
@@ -839,8 +882,17 @@ students tend to come in with a lot more research experience and are usually
 quite certain about the area they want to work in.&lt;&#x2F;p&gt;
 &lt;p&gt;Furthermore, the CS department is also structured in a way that assumes
 students are free agents their first year. This means that they are expected to
-&lt;del&gt;take a lot of classes and&lt;&#x2F;del&gt; &lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; be teaching assistants (TAs) in their first
-two semesters.&lt;&#x2F;p&gt;
+&lt;del&gt;take a lot of classes and&lt;&#x2F;del&gt; be teaching assistants (TAs) in their first
+two semesters.&lt;label for=&quot;sn-1&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-1&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+The CS department recently overhauled the course requirement to reduce the
+number of classes and restrictions on which classes to take.
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;my-experience&quot;&gt;My Experience&lt;&#x2F;h3&gt;
 &lt;p&gt;The free agent system caused me a lot of angst during the decision process. For
 some background, I had started doing programming languages (PL) research in the
@@ -869,8 +921,18 @@ I’m passionate about.&lt;&#x2F;p&gt;
 &lt;p&gt;While the free agent system caused me some anguish in the decision process, it
 was not the primary reason I decided join Cornell.&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;My primary motivators were research that excited me, and people &lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; who are
-just as excited about it as me.&lt;&#x2F;li&gt;
+&lt;li&gt;My primary motivators were research that excited me, and people who are
+just as excited about it as me.&lt;label for=&quot;sn-2&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-2&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+Importantly, this includes other grad students.
+Remember, you&#x27;re going to be spending a lot more time with other grad
+students than you will with faculty.
+&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;The first year TAing requirement causes some amount of stress for
 new students. However, the department is aware of the issues and is
 trying to move away from this system.&lt;&#x2F;li&gt;
@@ -880,18 +942,12 @@ post&lt;&#x2F;a&gt; from
 &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;jeanyang.com&#x2F;&quot;&gt;Jean Yang&lt;&#x2F;a&gt; on what considerations matter when deciding
 on schools. Good luck!&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;em&gt;Have comments? &lt;a href=&quot;mailto:rachit.nigam12@gmail.com&quot;&gt;Email&lt;&#x2F;a&gt; or &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;notypes&quot;&gt;tweet&lt;&#x2F;a&gt; at me.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
-&lt;p&gt;The CS department recently overhauled the course requirement to reduce the number of classes and restrictions on which classes to take.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
-&lt;p&gt;Importantly, This includes other grad students. Remember, you’re going to be spending a lot more time with other grad students than you will with faculty.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
-		<title>Don’t be Programming Languages researchers</title>
-		<published>2018-09-22T21:52:05-04:00</published>
-		<updated>2018-09-22T21:52:05-04:00</updated>
+		<title>Don’t be Programming Languages Researchers</title>
+		<published>2018-09-22T00:00:00+00:00</published>
+		<updated>2018-09-22T00:00:00+00:00</updated>
 		<link href="https://rachitnigam.com/post/pl-research/" type="text/html"/>
 		<id>https://rachitnigam.com/post/pl-research/</id>
 		<content type="html">&lt;blockquote&gt;
@@ -900,8 +956,9 @@ simply a reflection of my research interests and what role PL plays into it.&lt;
 &lt;&#x2F;blockquote&gt;
 &lt;p&gt;During a recent PLDG talk, the speaker said, “I think that, as a community, PL
 people have a moral responsibility to step in and say, ‘No, you’re having fun
-wrong!’” While I have no qualms about the comment itself (jokes can be useful
-tool in presentations), it led me to think about the
+wrong!’.”
+I have no qualms about the comment itself—jokes can be a useful
+tool in presentations; however, it did led me to think about the
 way PL research is applied in new domains.&lt;&#x2F;p&gt;
 &lt;p&gt;In a classic programming languages presentation, the speaker starts with an
 overview of a domain, talks about the current state of the art of
@@ -909,7 +966,18 @@ programming languages and tools in it, and then go on to point out that most
 tools and languages fail to make use of amazing and well-known PL
 techniques. Then they describe their work which applies the aforementioned PL
 technique and build cool and interesting language abstractions with the promise
-of building better and improved tools for the domain&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+of building better and improved tools for the domain.&lt;label for=&quot;sn-1&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-1&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+It is rarely the case that the tool or language proposed actually solves the
+problems in the motivation.
+&lt;em&gt;Yes, do tell me how your tiny language will stop Google from going down twice
+a year.&lt;&#x2F;em&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;While I strongly endorse PL techniques and research being applied in new
 domains, this story demonstrates a fundamental issue for me: Application of PL techniques is
 done retrospectively. PL researchers are not there when a domain is shaping up
@@ -925,9 +993,6 @@ Programming
 languages are the fundamental way of communicating intent to computers. As
 PL researchers, we should be actively helping people from other domains, not
 waiting for them to realize the error of their ways and come to us.&lt;&#x2F;p&gt;
-&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
-&lt;p&gt;It is rarely the case that the tool or language proposed actually solves the problems in the motivation. &lt;em&gt;Yes, do tell me how your tiny language will stop Google from going down twice a year.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
 </content>
 	</entry>
 </feed>
