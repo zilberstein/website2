@@ -4,8 +4,130 @@
 	<link href="https://rachitnigam.com/post/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://rachitnigam.com/post/"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2021-02-17T00:00:00+00:00</updated>
+	<updated>2021-03-13T00:00:00+00:00</updated>
 	<id>https://rachitnigam.com/post/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Commoditize the Complement of your Research</title>
+		<published>2021-03-13T00:00:00+00:00</published>
+		<updated>2021-03-13T00:00:00+00:00</updated>
+		<link href="https://rachitnigam.com/post/commoditize-your-research-complement/" type="text/html"/>
+		<id>https://rachitnigam.com/post/commoditize-your-research-complement/</id>
+		<content type="html">&lt;p&gt;“Commoditize your complement” is an idea about how companies can build profitable
+markets without complete vertical integration or monopolization.&lt;label for=&quot;sn-1&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-1&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+I highly recommend &amp;quot;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.gwern.net&#x2F;Complement&quot;&gt;Laws of Tech: Commoditize Your Complement&lt;&#x2F;a&gt;&amp;quot; for a more
+in-depth look into this idea.
+&lt;&#x2F;span&gt;
+Very briefly, the idea is this: every product has a &lt;em&gt;substitute&lt;&#x2F;em&gt; and a &lt;em&gt;complement&lt;&#x2F;em&gt;.
+A substitute is a product that provides the same functionality and therefore
+competes with your product.
+For example, Zoom is a substitute for Skype.
+A complement is product that people buy along with your product.
+For example, operating systems complement personal computers.
+So, what can researchers learn from creating markets?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-complement-of-your-research&quot;&gt;The Complement of Your Research&lt;&#x2F;h2&gt;
+&lt;p&gt;Some of my favorite research projects have an interesting characteristic:
+instead of competing with people in a hot research area, these projects build
+the infrastructure that everyone needs to use.
+Over time, such projects win out in terms of research impact and ability to
+do novel research because &lt;em&gt;everyone&lt;&#x2F;em&gt; who does research in that area ends up
+using these tools.&lt;&#x2F;p&gt;
+&lt;p&gt;Let me use a particular research tool as an example.
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;emina.github.io&#x2F;rosette&#x2F;&quot;&gt;Rosette&lt;&#x2F;a&gt; is an embedded language in Racket that allows researchers to quickly
+develop &lt;em&gt;solver-aided tools&lt;&#x2F;em&gt;.
+Solver-aided tools are a “hot topic” in programming languages research.
+The high-level idea is encoding the semantics of a program into boolean (or richer
+logics) and using SMT solvers like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Z3Prover&#x2F;z3&quot;&gt;Z3&lt;&#x2F;a&gt; to either verify programs or
+automatically synthesize them from specifications.&lt;label for=&quot;sn-2&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-2&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+James Bornholt&#x27;s &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.sigplan.org&#x2F;2019&#x2F;07&#x2F;31&#x2F;program-synthesis-in-2019&#x2F;&quot;&gt;introduction to program synthesis&lt;&#x2F;a&gt; provides a good overview of
+the area.
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Roughly speaking, anyone who attempts to build a solver-aided tool has to do
+three things: encode the semantics of programs as SMT, repeatedly query
+the SMT solver, and transform the output of the SMT solver back to the input
+language.
+Before languages like Rosette, researchers would spend a lot of time building
+compilers to painstakingly transform programs to SMT, debugging problems with
+the encodings, and transforming the output from the SMT solver.
+&lt;em&gt;Every researcher&lt;&#x2F;em&gt; who wants to build a solver-aided tool would redo this work
+or build upon someone else’s unmaintained research code.&lt;&#x2F;p&gt;
+&lt;p&gt;The idea with Rosette is simple—build a framework where you can write an
+interpreter for your language and &lt;em&gt;automatically&lt;&#x2F;em&gt; turn it into a solver-aided
+tool.&lt;label for=&quot;sn-3&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-3&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+This simple idea is, of course, built upon deep insights about how solvers
+and symbolic execution work.
+I recommend reading the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;homes.cs.washington.edu&#x2F;%7Eemina&#x2F;doc&#x2F;rosette.pldi14.pdf&quot;&gt;Rosette paper&lt;&#x2F;a&gt; for those
+interested.
+&lt;&#x2F;span&gt;
+The original &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;homes.cs.washington.edu&#x2F;%7Eemina&#x2F;doc&#x2F;rosette.pldi14.pdf&quot;&gt;Rosette paper&lt;&#x2F;a&gt; was a novel and interesting contribution,
+therefore justifying its publication.
+However, the real research impact of Rosette has been from its continued use
+long after the paper was published.&lt;&#x2F;p&gt;
+&lt;p&gt;As of writing this blog post, the Rosette &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;emina.github.io&#x2F;rosette&#x2F;apps.html&quot;&gt;project page&lt;&#x2F;a&gt; outlines
+19 research projects that use it in some capacity.
+An important reason for this is because the Rosette authors continued to
+maintain Rosette, provide support, and build upon the original work.
+However, these things only help if there a demand for a tool like Rosette—if
+people didn’t care about building solver-aided tools, Rosette would not be as
+successful.&lt;&#x2F;p&gt;
+&lt;p&gt;Rosette is a successful example of the “commoditize your complement”
+principle—instead of competing with people working in a “hot area”, build
+infrastructure that boosts the productivity of the people in that area.
+This way, your work becomes foundational and people can more productively focus
+on advancing the state-of-the-art using it.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;building-on-success&quot;&gt;Building on Success&lt;&#x2F;h2&gt;
+&lt;p&gt;A long-term benefit of building tools that complement a research area is that
+your tools and systems become legitimate grounds for follow-up research.
+Generally speaking, it is hard to motivate a research project where you solve a
+problem for your made-up system.
+However, if even dozens of other groups use your system, you can both
+reasonably claim that the follow-up work is important &lt;em&gt;and&lt;&#x2F;em&gt; other people’s work
+to evaluate your follow-up work.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;unsat.cs.washington.edu&#x2F;projects&#x2F;sympro&#x2F;&quot;&gt;SymPro&lt;&#x2F;a&gt;, a tool built upon Rosette, is an example of this.
+SymPro is a symbolic profiler for Rosette.
+Put simply, it profiles programs written in Rosette and finds code that causes
+the SMT encoding of a program to blow up.
+SymPro was able to use the existing Rosette ecosystem to develop a robust tool
+and evaluate it on code written by users of Rosette.
+This is both a value-add for users of Rosette and a compelling case to justify
+the research paper.&lt;label for=&quot;sn-4&quot;
+       class=&quot;margin-toggle sidenote-number&quot;&gt;
+&lt;&#x2F;label&gt;
+&lt;input type=&quot;checkbox&quot;
+       id=&quot;sn-4&quot;
+       class=&quot;margin-toggle&quot;&#x2F;&gt;
+&lt;span class=&quot;sidenote&quot;&gt;
+The research contributions of the paper are not tied to Rosette.
+However, building upon Rosette makes the paper that much more compelling.
+&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finding-a-complement&quot;&gt;Finding a Complement&lt;&#x2F;h2&gt;
+&lt;p&gt;Rosette was not the first tool to address the needs of a particular research
+community.
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;unsat.cs.washington.edu&#x2F;projects&#x2F;sympro&#x2F;&quot;&gt;LLVM&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;valgrind.org&#x2F;&quot;&gt;Valgrind&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;klee.github.io&#x2F;&quot;&gt;KLEE&lt;&#x2F;a&gt;, etc. all found research areas where people
+were desperate to build tools but had no good infrastructure.
+All of them capitalized on this need by building robust tools and providing
+support.
+So, the valuable takeaway from this is that research projects that seek to
+support instead of compete might win out in the long-term.&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="en">
 		<title>Languages, Tools, and Techniques for Accelerator Design</title>
 		<published>2021-02-17T00:00:00+00:00</published>
