@@ -13,9 +13,11 @@
 		<link href="https://rachitnigam.com/post/commoditize-your-research-complement/" type="text/html"/>
 		<id>https://rachitnigam.com/post/commoditize-your-research-complement/</id>
 		<content type="html">&lt;p&gt;“Commoditize your complement” is an idea about how companies can build profitable
-markets without complete vertical integration or monopolization.&lt;label for=&quot;sn-1&quot;
+markets without complete vertical integration or monopolization.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-1&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-1&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -43,9 +45,11 @@ develop &lt;em&gt;solver-aided tools&lt;&#x2F;em&gt;.
 Solver-aided tools are a “hot topic” in programming languages research.
 The high-level idea is encoding the semantics of a program into boolean (or richer
 logics) and using SMT solvers like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Z3Prover&#x2F;z3&quot;&gt;Z3&lt;&#x2F;a&gt; to either verify programs or
-automatically synthesize them from specifications.&lt;label for=&quot;sn-2&quot;
+automatically synthesize them from specifications.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-2&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-2&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -64,9 +68,11 @@ the encodings, and transforming the output from the SMT solver.
 or build upon someone else’s unmaintained research code.&lt;&#x2F;p&gt;
 &lt;p&gt;The idea with Rosette is simple—build a framework where you can write an
 interpreter for your language and &lt;em&gt;automatically&lt;&#x2F;em&gt; turn it into a solver-aided
-tool.&lt;label for=&quot;sn-3&quot;
+tool.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-3&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-3&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -107,9 +113,11 @@ the SMT encoding of a program to blow up.
 SymPro was able to use the existing Rosette ecosystem to develop a robust tool
 and evaluate it on code written by users of Rosette.
 This is both a value-add for users of Rosette and a compelling case to justify
-the research paper.&lt;label for=&quot;sn-4&quot;
+the research paper.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-4&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-4&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -314,9 +322,11 @@ pay-what-you-use model.&lt;&#x2F;p&gt;
 &lt;p&gt;Owing to its root as a hardware simulator, FPGA programming toolchains repurpose
 existing hardware design languages (HDLs). As a circuit simulator, this is
 a really good idea. You can simply take your preexisting hardware design and
-run it on an FPGA.&lt;label for=&quot;sn-1&quot;
+run it on an FPGA.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-1&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-1&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -348,9 +358,11 @@ of transforming behavioral (or functional) descriptions of computation
 into hardware designs. This is commonly referred to High-Level Synthesis (HLS)
 in the community.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;high-level-synthesis&quot;&gt;High-Level Synthesis&lt;&#x2F;h2&gt;
-&lt;p&gt;High-Level Synthesis &lt;label for=&quot;sn-2&quot;
+&lt;p&gt;High-Level Synthesis &lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-2&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-2&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -358,9 +370,11 @@ in the community.&lt;&#x2F;p&gt;
 &amp;quot;Synthesis&amp;quot; is borrowed from hardware design workflows—circuits are synthesized into silicon. This is just a compiler.
 &lt;&#x2F;span&gt;
 is the idea of compiling a computational description
-in a high-level programming language, &lt;label for=&quot;sn-3&quot;
+in a high-level programming language, &lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-3&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-3&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -901,9 +915,11 @@ research is like and helped me redefine what “success” should mean.&lt;&#x2F
 &lt;p&gt;Here is a quick summary of my research experience as an undergrad:&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;spring-2016&quot;&gt;Spring 2016&lt;&#x2F;h3&gt;
 &lt;p&gt;I reached out a my undergraduate advisor in my first semester after being
-fascinated with Scheme.&lt;label for=&quot;sn-1&quot;
+fascinated with Scheme.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-1&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-1&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -917,9 +933,11 @@ The particular phase we were interested in formalizing were the bash shell
 &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;bash&#x2F;manual&#x2F;html_node&#x2F;Shell-Expansions.html&quot;&gt;expansions&lt;&#x2F;a&gt;. We tried to build a Hoare logic style semantics for the expansion, because
 we wanted to ultimately verify properties of these shell scripts. Unfortunately,
 I showed that such a semantics becomes super complicated and we abandoned the
-project.&lt;label for=&quot;sn-2&quot;
+project.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-2&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-2&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -955,9 +973,11 @@ People on the project had built a frontend that could take JavaScript code and
 compile it into something that could enforces security conditions.
 Around the same time, the Puppet synthesis project slowed down because the
 first author was applying to graduate schools and I was focusing more on
-Fission. Eventually, I stopped working on Puppet synthesis entirely.&lt;label for=&quot;sn-3&quot;
+Fission. Eventually, I stopped working on Puppet synthesis entirely.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-3&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-3&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -967,9 +987,11 @@ This eventually became a &lt;a rel=&quot;noopener nofollow noreferrer&quot; targ
 &lt;p&gt;To cap off the depressing string of half completed projects, it was around this
 time I actually had minor clinical depression and my productivity collapsed. After
 attending &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;conf.researchr.org&#x2F;home&#x2F;icfp-2016&quot;&gt;ICFP ’16&lt;&#x2F;a&gt; I decided to
-start therapy to “fix” my clinical depression.&lt;label for=&quot;sn-4&quot;
+start therapy to “fix” my clinical depression.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-4&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-4&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -1084,9 +1106,11 @@ quite certain about the area they want to work in.&lt;&#x2F;p&gt;
 &lt;p&gt;Furthermore, the CS department is also structured in a way that assumes
 students are free agents their first year. This means that they are expected to
 &lt;del&gt;take a lot of classes and&lt;&#x2F;del&gt; be teaching assistants (TAs) in their first
-two semesters.&lt;label for=&quot;sn-1&quot;
+two semesters.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-1&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-1&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -1123,9 +1147,11 @@ I’m passionate about.&lt;&#x2F;p&gt;
 was not the primary reason I decided join Cornell.&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;My primary motivators were research that excited me, and people who are
-just as excited about it as me.&lt;label for=&quot;sn-2&quot;
+just as excited about it as me.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-2&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-2&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
@@ -1167,9 +1193,11 @@ programming languages and tools in it, and then go on to point out that most
 tools and languages fail to make use of amazing and well-known PL
 techniques. Then they describe their work which applies the aforementioned PL
 technique and build cool and interesting language abstractions with the promise
-of building better and improved tools for the domain.&lt;label for=&quot;sn-1&quot;
+of building better and improved tools for the domain.&lt;span style=&quot;white-space:nowrap&quot;&gt;
+&lt;label for=&quot;sn-1&quot;
        class=&quot;margin-toggle sidenote-number&quot;&gt;
 &lt;&#x2F;label&gt;
+&lt;&#x2F;span&gt;
 &lt;input type=&quot;checkbox&quot;
        id=&quot;sn-1&quot;
        class=&quot;margin-toggle&quot;&#x2F;&gt;
