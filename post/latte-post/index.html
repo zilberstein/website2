@@ -9,13 +9,13 @@
 
   <link rel="icon" href="/flower.svg" type="image/svg+xml">
 
-  <link rel="stylesheet" href=https:&#x2F;&#x2F;rachitnigam.com&#x2F;css&#x2F;normalize.css>
-  <link rel="stylesheet" href=https:&#x2F;&#x2F;rachitnigam.com&#x2F;css&#x2F;default.css>
+  <link rel="stylesheet" href=https://rachitnigam.com/css/normalize.css>
+  <link rel="stylesheet" href=https://rachitnigam.com/css/default.css>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous"/>
 
   
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;rachitnigam.com&#x2F;post&#x2F;atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://rachitnigam.com/post/atom.xml">
   
 
 </head>
@@ -54,7 +54,7 @@ techniques for accelerator design co-located with ASPLOS.</p>
 <p>New, higher-level programming models are the key to the ubiquitous use of FPGA-based accelerators. Beyond ridding developers from low-level abstractions, such programming models also enable novel solutions to classic problems such hardware verification and automatic optimization.</p>
 <h2 id="high-level-programming-models">High-Level Programming Models</h2>
 <p>The obvious benefit of higher-level programming models is the ability to specify hardware without dwelling on low-level details. For example, using high-level synthesis (HLS) compilers, programmers can compile C++ programs into hardware designs. The aforementioned matrix multiplier can be implemented in a few lines of code:</p>
-<pre><code class="language-C" data-lang="C">for (int i = 0; i &lt; N; i++)
+<pre data-lang="C" class="language-C "><code class="language-C" data-lang="C">for (int i = 0; i &lt; N; i++)
   for (int j = 0; i &lt; N; i++)
     for (int k = 0; i &lt; N; i++)
       #pragma HLS UNROLL factor=5
