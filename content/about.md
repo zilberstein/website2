@@ -2,18 +2,5 @@
 template = "index.html"
 +++
 
-Rachit{% footnote() %}
-*Pronunciation*: Ruh-CHIT. Rhymes with "crutch-it". 'a's at the start of many Indian names are actually 'u's.
-{% end %}
-Nigam is a PhD student studying computer science at Cornell University.
-He is a part of the [CAPRA][] and [PL@Cornell][pl-cornell] research groups and is advised by [Adrian Sampson][adrian].
-His research ([Dahlia][], [Calyx][]) is focused on building high-level programming models for designing hardware accelerators.
-He previously worked in the [PLASMA][plasma] research group at the University of Massachusetts Amherst with [Arjun Guha][arjun].
+I am a PhD Student at Cornell University. My research focuses on developing programming languages and formal methods that help developers more effectively reason about the correctness of their code. I strive to ground my work in my six years of experience as a Software Engineer at Facebook in order to create solutions that can be applied in practice and that scale well to large systems. During my time at Facebook, I successfully applied these ideas to formally verify critical concurrent algorithms and eliminate bugs using dependently typed code. Through my research and industry collaborations, I hope to bring about a new generation of software development techniques that can better meet the scale of today’s increasingly complex systems.
 
-[capra]: https://capra.cs.cornell.edu/
-[adrian]: https://www.cs.cornell.edu/~asampson/
-[plasma]: https://plasma-umass.org/
-[arjun]: https://ccs.neu.edu/~arjunguha/main/home/
-[pl-cornell]: http://pl.cs.cornell.edu
-[dahlia]: http://capra.cs.cornell.edu/dahlia
-[calyx]: http://calyxir.org

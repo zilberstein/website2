@@ -8,7 +8,7 @@
 </div>
 
 <div class="portrait-title">
-<h3>PhD Candidate</h3>
+<h3>PhD Student</h3>
 
 <h3>
 <a href="https://cornell.edu" target="_blank" itemprop="url" rel="noopener">
@@ -18,10 +18,10 @@
 </div>
 
 <div class="contact-links">
-  {{ m::contact(link="mailto:rachit.nigam12@gmail.com", classes="fa fa-envelope") }}
-  {{ m::contact(link="//twitter.com/notypes", classes="fab fa-twitter") }}
-  {{ m::contact(link="//github.com/rachitnigam", classes="fab fa-github") }}
-  {{ m::contact(link="//scholar.google.com/citations?user=RNL2GjEAAAAJ", classes="ai ai-google-scholar") }}
+  {{ m::contact(link="mailto:noamz@cs.cornell.edu", classes="fa fa-envelope") }}
+  {{ m::contact(link="//twitter.com/NZComplete", classes="fab fa-twitter") }}
+  {{ m::contact(link="//github.com/zilberstein", classes="fab fa-github") }}
+  {{ m::contact(link="//scholar.google.com/citations?user=Bp6t6OIAAAAJ&hl=en", classes="ai ai-google-scholar") }}
 </div>
 </div>
 
@@ -33,6 +33,7 @@
 </div>
 
 <!-- News -->
+{{ m::anchor_heading(content="News") }}
 {% set news = get_section(path="news/_index.md") %}
 {% set items = config.extra.news_items %}
 {% for post in news.pages | sort(attribute="date") | reverse | slice(end=items) %}
@@ -89,7 +90,7 @@
 </section>
 
 <!-- Blog Posts -->
-<section>
+<!--<section>
 <h2 id="posts">Posts
 <sup>
 <a class="unstyled-link" href="{{ get_url(path="post/atom.xml") }}">
@@ -109,5 +110,6 @@
 </a>
 </div>
 </section>
+-->
 
 {% endblock content %}
