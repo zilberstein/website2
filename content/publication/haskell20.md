@@ -1,5 +1,5 @@
 +++
-title = "Eliminating Bugs with Dependent Types"
+title = "Eliminating Bugs with Dependent Haskell"
 # Add a subtitle here
 # subtitle = ""
 date = 2020-08-27
@@ -15,10 +15,10 @@ authors = [
 publication = "Haskell Symposium"
 publication_short = "Haskell"
 
-pdf = "/files/pubs/haskell20.pdf"
+pdf = "files/pubs/haskell20.pdf"
 urls = [
   { name = "Code", url = "https://github.com/facebookincubator/hsthrift" },
-  { name = "Slides", url = "/files/slides/haskell20.pdf" },
+  { name = "Slides", file = "files/slides/haskell20.pdf" },
   { name = "Talk", url = "https://www.youtube.com/watch?v=10gSoVZ5yXY" },
   { name = "DOI", url = "https://dl.acm.org/doi/10.1145/3406088.3409020" }
 ]
