@@ -83,7 +83,7 @@ a.unstyled-link:hover, a.unstyled-link:focus {
 body {
   margin: auto;
   width: 80%;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 header {
@@ -502,6 +502,5 @@ div.footnotes {
 
 @media screen and (min-width: 900px) {
   body {
-    margin-left: 14%;
   }
 }

@@ -18,7 +18,8 @@ publication_short = "Haskell"
 pdf = "/files/pubs/haskell20.pdf"
 urls = [
   { name = "Code", url = "https://github.com/facebookincubator/hsthrift" },
-  { name = "Slides", url = "/files/slides/calyx.pdf" },
-  { name = "Talk", url = "https://youtu.be/MElzn-KV5zw" }
+  { name = "Slides", url = "/files/slides/haskell20.pdf" },
+  { name = "Talk", url = "https://www.youtube.com/watch?v=10gSoVZ5yXY" },
+  { name = "DOI", url = "https://dl.acm.org/doi/10.1145/3406088.3409020" }
 ]
 +++
