@@ -17,9 +17,9 @@ publication_short = "Haskell"
 
 pdf = "files/pubs/haskell20.pdf"
 urls = [
-  { name = "Code", url = "https://github.com/facebookincubator/hsthrift" },
-  { name = "Slides", file = "files/slides/haskell20.pdf" },
-  { name = "Talk", url = "https://www.youtube.com/watch?v=10gSoVZ5yXY" },
-  { name = "DOI", url = "https://dl.acm.org/doi/10.1145/3406088.3409020" }
+  { tag = "Code", icon = "fas fa-code", url = "https://github.com/facebookincubator/hsthrift" },
+  { tag = "Slides", icon = "fas fa-chalkboard-teacher", file = "files/slides/haskell20.pdf" },
+  { tag = "Talk", icon = "fab fa-youtube", url = "https://www.youtube.com/watch?v=10gSoVZ5yXY" },
+  { tag = "ACM Digital Library", icon = "fas fa-book", url = "https://dl.acm.org/doi/10.1145/3406088.3409020" }
 ]
 +++
